@@ -1,0 +1,21 @@
+# Configuración por defecto del pipeline.
+# La semilla se define una única vez aquí (regla dura 6 de CLAUDE.md).
+seed: 42
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  quarantine_dir: data/quarantine
+  reports_dir: reports
+
+norma:
+  umbral_hora_ug_m3: 350
+  umbral_diario_ug_m3: 150
+  umbral_anual_ug_m3: 60
+  umbral_emergencia_ug_m3: 500
+
+esquema:
+  velocidad_viento_max_m_s: 60
+  direccion_viento_min_deg: 0
+  direccion_viento_max_deg: 360
+  fecha_min: "1970-01-01"
