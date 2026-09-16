@@ -53,7 +53,12 @@ def ingest() -> None:
 
     typer.echo("Validando contra el contrato de datos ...")
     validas, cuarentena = load_validated(crudo, quarantine_dir=QUARANTINE_DIR)
-    typer.echo(f"  {len(validas):,} filas válidas, {len(cuarentena):,} en cuarentena.")
+    descartadas = len(crudo) - len(validas) - len(cuarentena)
+    typer.echo(
+        f"  {len(validas):,} filas válidas, {len(cuarentena):,} en cuarentena, "
+        f"{descartadas:,} descartadas en silencio (sin valor, anteriores al "
+        "inicio de operación de su estación -- CLAUDE.md §8.6.4)."
+    )
 
     a_versionar = validas[validas["parametro"].str.startswith(PARAMETROS_A_VERSIONAR)].copy()
     a_versionar["estacion"] = a_versionar["estacion"].astype("category")

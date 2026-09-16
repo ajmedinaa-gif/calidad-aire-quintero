@@ -2,6 +2,17 @@
 
 Regla dura 4 de CLAUDE.md: los datos que no pasan el contrato van a
 `data/quarantine/`, con el motivo. No se borran ni se imputan en silencio.
+
+Excepción deliberada (CLAUDE.md §8.6.4, paso 4): una fila SIN valor, fechada
+antes de que su estación empezara a operar, no lleva ninguna información --
+es una fila vacía que SINCA rellena por continuidad del rango de fechas del
+export, no un dato perdido. Ingerirla como válida sería incorrecto (nunca
+hubo estación ahí) y mandarla a cuarentena sería ruido puro: solo en
+la_greda/velocidad_viento_horario son ~350.000 filas de nada. Por eso se
+descarta antes de validar, en silencio. Una fila CON valor en ese mismo
+rango es harina de otro costal -- sí es un dato, y si es anterior a la
+operación, el contrato la rechaza y SÍ queda documentada en cuarentena con
+motivo "fecha_anterior_a_operacion".
 """
 
 from __future__ import annotations
@@ -12,9 +23,28 @@ from pathlib import Path
 import pandas as pd
 import pandera.pandas as pa
 
-from calidad_aire.schema import ESQUEMA_SINCA
+from calidad_aire.schema import ESQUEMA_SINCA, INICIO_OPERACION, validar_claves_conocidas
 
 QUARANTINE_DIR = Path("data/quarantine")
+
+
+def _antes_de_operacion(df: pd.DataFrame) -> pd.Series:
+    inicio = pd.Series(
+        [
+            INICIO_OPERACION.get(clave)
+            for clave in zip(df["estacion"], df["parametro"], strict=True)
+        ],
+        index=df.index,
+    )
+    return inicio.notna() & (df["fecha_hora"] < inicio)
+
+
+def descartar_ausentes_antes_de_operacion(df: pd.DataFrame) -> pd.DataFrame:
+    """Quita, antes de validar, las filas sin valor anteriores al inicio de
+    operación de su (estación, parámetro). Ver docstring del módulo.
+    """
+    sin_valor_antes = _antes_de_operacion(df) & df["valor"].isna()
+    return df.loc[~sin_valor_antes].copy()
 
 
 def _motivos_por_fila(failure_cases: pd.DataFrame) -> pd.Series:
@@ -33,7 +63,14 @@ def load_validated(
     Devuelve `(validas, cuarentena)`. `cuarentena` trae todas las columnas de
     `df` más `motivo`. Si hay filas en cuarentena, además se escriben a
     `<quarantine_dir>/<timestamp>.csv`.
+
+    Antes de validar, descarta en silencio las filas sin valor anteriores al
+    inicio de operación de su estación (`descartar_ausentes_antes_de_operacion`,
+    ver docstring del módulo): por eso `len(validas) + len(cuarentena)` puede
+    ser menor que `len(df)`.
     """
+    validar_claves_conocidas(df)
+    df = descartar_ausentes_antes_de_operacion(df)
     try:
         ESQUEMA_SINCA.validate(df, lazy=True)
         return df, df.iloc[0:0].copy().assign(motivo=pd.Series(dtype=str))

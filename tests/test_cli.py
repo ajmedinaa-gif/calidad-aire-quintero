@@ -18,7 +18,10 @@ def test_version_command_prints_installed_version() -> None:
 
 
 def test_ingest_command_consolida_valida_y_escribe_parquet(tmp_path, monkeypatch) -> None:
-    raw_dir = tmp_path / "raw" / "una_estacion"
+    # los_maitenes/so2_horario es un par real de INICIO_OPERACION
+    # (CLAUDE.md §8.6.4); una estación inventada haría fallar la validación
+    # a propósito con "INICIO_OPERACION no tiene entrada para ...".
+    raw_dir = tmp_path / "raw" / "los_maitenes"
     raw_dir.mkdir(parents=True)
     (raw_dir / "so2_horario.csv").write_text(
         "FECHA (YYMMDD);HORA (HHMM);Registros validados;Registros preliminares;"
