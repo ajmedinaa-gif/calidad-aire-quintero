@@ -174,7 +174,9 @@ def figura_clave_resolucion(
     )
     ax_arriba.set_title(f"Resolución horaria — {_nombre(estacion)}, {inicio} a {fin_exclusivo}")
     ax_arriba.set_ylabel("SO₂ horario (µg/m³)")
-    ax_arriba.legend(loc="upper right", fontsize=8)
+    # La leyenda va FUERA del área de trazado (CLAUDE.md §8.6): "upper right"
+    # tapaba el pico de emergencia del último día de la semana.
+    ax_arriba.legend(loc="upper left", bbox_to_anchor=(1.01, 1.0), fontsize=8, borderaxespad=0)
     ax_arriba.grid(axis="y", alpha=0.3)
 
     ax_abajo.plot(diaria["fecha"], diaria["valor"], color=COLOR_BASE, marker="o", linewidth=1.5)
@@ -188,7 +190,7 @@ def figura_clave_resolucion(
     ax_abajo.set_title("La misma semana, promediada a resolución diaria")
     ax_abajo.set_ylabel("SO₂ diario (µg/m³)")
     ax_abajo.set_xlabel("Fecha")
-    ax_abajo.legend(loc="upper right", fontsize=8)
+    ax_abajo.legend(loc="upper left", bbox_to_anchor=(1.01, 1.0), fontsize=8, borderaxespad=0)
     ax_abajo.grid(axis="y", alpha=0.3)
 
     # Mismo límite Y en los dos paneles -- a propósito (CLAUDE.md §8.3): así
@@ -211,7 +213,13 @@ def figura_mapa_calor_ciclo(
     umbral: float = UMBRAL_EMERGENCIA_UG_M3,
     estaciones: tuple[str, ...] = ESTACIONES_NUCLEO,
 ) -> Path:
-    """Mapa de calor hora del día x mes de las horas de emergencia."""
+    """Mapa de calor hora del día x mes de las horas de emergencia.
+
+    Agrega los años que haya en `df` sin distinguirlos -- con la serie
+    completa (1993-2026) eso significa que el patrón que se ve es
+    mayoritariamente el de los años noventa (CLAUDE.md §8.6), y el
+    subtítulo lo dice explícitamente en vez de dejarlo implícito.
+    """
     sub = df[
         (df["parametro"] == "so2_horario")
         & (df["estacion"].isin(estaciones))
@@ -219,6 +227,7 @@ def figura_mapa_calor_ciclo(
     ].copy()
     sub["hora"] = sub["fecha_hora"].dt.hour
     sub["mes"] = sub["fecha_hora"].dt.month
+    sub["anio"] = sub["fecha_hora"].dt.year
 
     matriz = (
         sub.groupby(["hora", "mes"])
@@ -228,23 +237,44 @@ def figura_mapa_calor_ciclo(
         .fillna(0)
     )
 
+    anio_min, anio_max = int(sub["anio"].min()), int(sub["anio"].max())
+    pct_noventas = (sub["anio"].between(1993, 1999)).mean() * 100
+
     fig, ax = plt.subplots(figsize=(9, 6))
     malla = ax.pcolormesh(
         matriz.columns, matriz.index, matriz.to_numpy(), cmap="YlOrRd", shading="auto"
     )
     fig.colorbar(malla, ax=ax, label="Horas de emergencia")
 
-    ax.set_title(f"Hora del día y mes de las horas de emergencia (SO₂ ≥ {umbral} µg/m³)")
+    ax.set_title(
+        f"Hora del día y mes de las horas de emergencia (SO₂ ≥ {umbral} µg/m³)\n"
+        f"{anio_max - anio_min + 1} años agregados ({anio_min}-{anio_max}); "
+        f"el {pct_noventas:.0f} % de las horas son de 1993-1999",
+        fontsize=11,
+    )
     ax.set_xlabel("Mes")
     ax.set_ylabel("Hora del día")
     ax.set_xticks(range(1, 13))
+    ax.set_xticklabels(
+        ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+    )
     ax.set_yticks(range(0, 24, 2))
+    ax.set_yticklabels([f"{h}h" for h in range(0, 24, 2)])
 
     return _guardar(fig, path)
 
 
+VMIN_COBERTURA_PCT = 70
+
+
 def figura_cobertura(cobertura_df: pd.DataFrame, path: Path | str) -> Path:
-    """Cobertura de datos (%) por estación y año, como mapa de calor."""
+    """Cobertura de datos (%) por estación y año, como mapa de calor.
+
+    `vmin=70` a propósito (CLAUDE.md §8.6): con `vmin=0` y casi todos los
+    años entre 90 y 100 %, el mapa salía azul uniforme y lo único legible
+    eran los huecos blancos. Toda cobertura por debajo de 70 % se satura al
+    mismo color -- el pie de la figura lo dice explícitamente.
+    """
     matriz = cobertura_df.pivot(index="estacion", columns="anio", values="cobertura_pct")
 
     fig, ax = plt.subplots(figsize=(12, 4))
@@ -253,7 +283,7 @@ def figura_cobertura(cobertura_df: pd.DataFrame, path: Path | str) -> Path:
         range(len(matriz.index)),
         matriz.to_numpy(),
         cmap="YlGnBu",
-        vmin=0,
+        vmin=VMIN_COBERTURA_PCT,
         vmax=100,
         shading="auto",
     )
@@ -263,5 +293,13 @@ def figura_cobertura(cobertura_df: pd.DataFrame, path: Path | str) -> Path:
     ax.set_yticklabels([_nombre(e) for e in matriz.index])
     ax.set_xlabel("Año")
     ax.set_title("Cobertura de datos de SO₂ por estación y año")
+    fig.text(
+        0.5,
+        -0.02,
+        f"Valores por debajo de {VMIN_COBERTURA_PCT} % se saturan al mismo color.",
+        ha="center",
+        fontsize=8,
+        style="italic",
+    )
 
     return _guardar(fig, path)
