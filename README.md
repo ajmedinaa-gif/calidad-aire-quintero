@@ -44,7 +44,7 @@ fuera de la influencia directa del complejo industrial.
 | las_palmas | SO₂ | 1999-02-06 → 2026-09-14 | 241.991 | 91 % |
 | puchuncavi | dirección y velocidad de viento | 2009-12-31 → 2026-09-16 | 146.495 | 99 % |
 | ventanas | dirección y velocidad de viento | 2013-01-01 → 2026-09-15 | 120.143 | 98 % |
-| la_greda | dirección y velocidad de viento | 1970-01-01 → 2026-09-16 | 497.111 | 29 % |
+| la_greda | dirección y velocidad de viento | **2010-01-01** → 2026-09-16 | 146.472 | **99 %** |
 | las_palmas | dirección de viento | 2007-10-01 → 2026-07-10 | 164.591 | 42 % |
 | los_maitenes | SO₂ diario | 2000-08-21 → 2026-08-20 | 9.496 | 99,3 % |
 
@@ -54,10 +54,19 @@ y año en `caq eda` (`eda.cobertura_por_estacion_y_anio`):
 
 ![Cobertura de datos de SO₂ por estación y año](reports/figures/cobertura_datos.png)
 
-Los huecos blancos son años en que la estación todavía no existía (p. ej.
-`ventanas` empieza en 2013) o en que su cobertura de viento apenas arrancaba
-(`las_palmas`, 1999-2000); una vez operando, las cinco estaciones rondan el
-95-100 % de cobertura casi todos los años.
+(la escala de color se satura por debajo de 70 % -- con casi todos los años
+sobre 90 %, un mapa de 0 a 100 % salía azul uniforme y solo se leían los
+huecos.) Los huecos blancos son años en que la estación todavía no existía
+(p. ej. `ventanas` empieza en 2013); una vez operando, las cinco estaciones
+rondan el 95-100 % de cobertura casi todos los años.
+
+`la_greda`/viento arrancaba antes en `data/raw/` (1970), pero esas cuatro
+décadas eran filas de continuidad del export sin ninguna estación detrás:
+apenas 32 y 58 lecturas no nulas en 40 años, y las pocas que hay son basura
+física (-72,0026° de dirección, 5,8155×10³⁵ m/s de velocidad -- ningún
+instrumento produce eso). El inicio real, medido, es 2010; corrige el 29 %
+que este README citaba antes, que era un artefacto de dividir 16 años reales
+entre 56 años de filas, no una diferencia real de cobertura con `puchuncavi`.
 
 ### El contrato de datos
 
@@ -73,12 +82,28 @@ Rangos físicos exigidos antes de que un valor se considere válido:
 | SO₂, NO₂, O₃, MP10, MP25, CO | ≥ 0 |
 | dirección de viento | 0° – 360° |
 | velocidad de viento | 0 – 60 m/s |
-| fecha_hora | 1970-01-01 – hoy |
+| fecha_hora | posterior al inicio de operación medido de esa estación y ese parámetro, y no futura |
 
-Lo que no cumple el contrato **no se borra ni se imputa**: va a
-`data/quarantine/<timestamp>.csv` con una columna `motivo`. El caso conocido
-de esta descarga es una lectura de **90.114,5 m/s** de velocidad de viento en
-`la_greda` — muy por encima del récord mundial (≈113 m/s).
+El límite inferior de fecha **no** es un `1970-01-01` global: ese valor es
+justo el que produce una exportación de SINCA rota (la de `la_greda`/viento
+de arriba), así que no podía rechazar nada. `INICIO_OPERACION`, en
+`schema.py`, es una tabla explícita con el inicio medido de cada una de las
+32 combinaciones (estación, parámetro) -- nunca se recalcula sola.
+
+Una fila **sin valor**, fechada antes de ese inicio, no lleva ninguna
+información -- es continuidad de fechas del export, no un dato perdido -- y
+se descarta antes de validar, en silencio (1.186.754 filas en la ingesta de
+esta fase, casi todas de `la_greda`/viento 1970-2009). Una fila **con
+valor** en ese mismo rango sí es un dato, y el contrato la rechaza igual que
+cualquier otra: va a `data/quarantine/<timestamp>.csv` con motivo
+`fecha_anterior_a_operacion`. Son dos caminos distintos a propósito: mandar
+350.000 filas vacías a cuarentena sería ruido puro, pero borrar en silencio
+una fila que sí trae un valor sería exactamente lo que la regla dura 4 de
+este proyecto prohíbe.
+
+El caso de cuarentena por rango físico conocido de esta descarga es una
+lectura de **90.114,5 m/s** de velocidad de viento en `la_greda` — muy por
+encima del récord mundial (≈113 m/s).
 
 ### Qué se versiona y qué no
 
@@ -89,10 +114,12 @@ de esta descarga es una lectura de **90.114,5 m/s** de velocidad de viento en
   `category`, `valor` en `float32` y compresión `zstd` (nivel 15): con los 11
   parámetros completos pesa 56 MB (34 MB incluso con esas mismas
   optimizaciones y zstd nivel 19), por encima del límite de 25 MB fijado para
-  este repositorio; con SO₂ y viento pesa **19,62 MB**. NO₂, O₃, MP10, MP25 y
-  CO quedan validados durante la ingesta pero no persistidos — se recuperan
-  re-ejecutando `caq ingest` sobre `data/raw/`. SO₂ y viento son, además, los
-  únicos
+  este repositorio; con SO₂ y viento pesa **16,36 MB** (19,62 MB antes de la
+  Fase 2 -- bajó al quitar del parquet las ~1,19 millones de filas de
+  continuidad sin estación real detrás, sobre todo `la_greda`/viento
+  1970-2009). NO₂, O₃, MP10, MP25 y CO quedan validados durante la ingesta
+  pero no persistidos — se recuperan re-ejecutando `caq ingest` sobre
+  `data/raw/`. SO₂ y viento son, además, los únicos
   parámetros que usan las fases 2 a 4 (recuperación y pronóstico).
 - `data/quarantine/` tampoco se versiona (son datos derivados,
   reproducibles desde `data/raw/`).
@@ -151,10 +178,28 @@ cifra -- la resolución diaria -- la que un ciudadano común consulta primero:
 es la que SINCA muestra por defecto y la que reportan los medios.
 
 **Verificación:** promediar la serie horaria de `los_maitenes` a diaria
-reproduce la serie diaria publicada (`so2_diario.csv`) en **99,9 %** de los
-9.427 días comparables (tolerancia 1 µg/m³), con una diferencia mediana de
-**0,000 µg/m³**. No son dos fuentes distintas: es el mismo instrumento, el
-mismo dato, a dos resoluciones.
+reproduce la serie diaria publicada (`so2_diario.csv`) con una diferencia
+mediana de **0,000 µg/m³** (más exacto: 0,0000343) sobre 9.427 días
+comparables. No son dos fuentes distintas: es el mismo instrumento, el mismo
+dato, a dos resoluciones -- con una excepción real, no una nota al pie:
+
+| tolerancia | coincide | días fuera |
+|---|---|---|
+| 0,1 µg/m³ | 99,830 % | 16 |
+| 0,5 µg/m³ | 99,873 % | 12 |
+| 1 µg/m³ | 99,926 % | 7 |
+| 2 µg/m³ | 99,958 % | 4 |
+| 5 µg/m³ | 100,000 % | 0 |
+
+Siete de 9.427 días difieren en más de 1 µg/m³, **con las 24 horas
+completas** cada uno (2015-12-08, 2015-01-01, 2011-10-26, 2012-10-20,
+2015-03-18, 2016-02-01, 2015-12-20 -- la lista exacta, con su diferencia y
+sus horas válidas, está en `reports/eda.json`). No es un problema de
+cobertura: es una discrepancia real entre dos productos de SINCA sobre el
+mismo dato. Hipótesis no verificada, no afirmada: probablemente la serie
+diaria se calcula sobre una versión validada distinta de la que exporta el
+sitio para la serie horaria. Este repositorio no sabe cuál de los dos
+productos es "el correcto", y no lo inventa.
 
 Con esa reconstrucción confirmada, la comparación en la misma estación y el
 mismo periodo (2000-08-21 a 2026-08-20) es directa:
