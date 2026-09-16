@@ -1,0 +1,4076 @@
+{
+  "generado_en": "2026-09-16T18:06:47",
+  "cobertura_por_estacion_y_anio": [
+    {
+      "estacion": "la_greda",
+      "anio": 1993,
+      "horas_totales": 8759,
+      "horas_con_valor": 8640,
+      "cobertura_pct": 98.64139741979679
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1994,
+      "horas_totales": 8760,
+      "horas_con_valor": 8667,
+      "cobertura_pct": 98.93835616438355
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1995,
+      "horas_totales": 8760,
+      "horas_con_valor": 8514,
+      "cobertura_pct": 97.1917808219178
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1996,
+      "horas_totales": 8784,
+      "horas_con_valor": 8669,
+      "cobertura_pct": 98.6908014571949
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1997,
+      "horas_totales": 8760,
+      "horas_con_valor": 8756,
+      "cobertura_pct": 99.95433789954338
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1998,
+      "horas_totales": 8760,
+      "horas_con_valor": 8760,
+      "cobertura_pct": 100.0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1999,
+      "horas_totales": 8760,
+      "horas_con_valor": 8659,
+      "cobertura_pct": 98.84703196347033
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2000,
+      "horas_totales": 8784,
+      "horas_con_valor": 8723,
+      "cobertura_pct": 99.30555555555556
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2001,
+      "horas_totales": 8760,
+      "horas_con_valor": 8731,
+      "cobertura_pct": 99.6689497716895
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2002,
+      "horas_totales": 8760,
+      "horas_con_valor": 8672,
+      "cobertura_pct": 98.99543378995433
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2003,
+      "horas_totales": 8760,
+      "horas_con_valor": 8754,
+      "cobertura_pct": 99.93150684931507
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2004,
+      "horas_totales": 8784,
+      "horas_con_valor": 8672,
+      "cobertura_pct": 98.72495446265937
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2005,
+      "horas_totales": 8760,
+      "horas_con_valor": 8743,
+      "cobertura_pct": 99.80593607305937
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2006,
+      "horas_totales": 8760,
+      "horas_con_valor": 8725,
+      "cobertura_pct": 99.60045662100457
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2007,
+      "horas_totales": 8760,
+      "horas_con_valor": 8746,
+      "cobertura_pct": 99.84018264840184
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2008,
+      "horas_totales": 8784,
+      "horas_con_valor": 8772,
+      "cobertura_pct": 99.86338797814209
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2009,
+      "horas_totales": 8760,
+      "horas_con_valor": 8738,
+      "cobertura_pct": 99.74885844748859
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2010,
+      "horas_totales": 8760,
+      "horas_con_valor": 8691,
+      "cobertura_pct": 99.2123287671233
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2011,
+      "horas_totales": 8760,
+      "horas_con_valor": 8562,
+      "cobertura_pct": 97.73972602739725
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2012,
+      "horas_totales": 8784,
+      "horas_con_valor": 8617,
+      "cobertura_pct": 98.0988160291439
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2013,
+      "horas_totales": 8760,
+      "horas_con_valor": 8665,
+      "cobertura_pct": 98.91552511415526
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2014,
+      "horas_totales": 8760,
+      "horas_con_valor": 8657,
+      "cobertura_pct": 98.82420091324201
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2015,
+      "horas_totales": 8760,
+      "horas_con_valor": 8636,
+      "cobertura_pct": 98.58447488584476
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2016,
+      "horas_totales": 8784,
+      "horas_con_valor": 8698,
+      "cobertura_pct": 99.02094717668488
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2017,
+      "horas_totales": 8760,
+      "horas_con_valor": 8622,
+      "cobertura_pct": 98.42465753424658
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2018,
+      "horas_totales": 8760,
+      "horas_con_valor": 8664,
+      "cobertura_pct": 98.9041095890411
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2019,
+      "horas_totales": 8760,
+      "horas_con_valor": 8692,
+      "cobertura_pct": 99.22374429223744
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2020,
+      "horas_totales": 8784,
+      "horas_con_valor": 8704,
+      "cobertura_pct": 99.08925318761385
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2021,
+      "horas_totales": 8760,
+      "horas_con_valor": 8670,
+      "cobertura_pct": 98.97260273972603
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2022,
+      "horas_totales": 8760,
+      "horas_con_valor": 8634,
+      "cobertura_pct": 98.56164383561644
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2023,
+      "horas_totales": 8760,
+      "horas_con_valor": 8686,
+      "cobertura_pct": 99.15525114155251
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2024,
+      "horas_totales": 8784,
+      "horas_con_valor": 8671,
+      "cobertura_pct": 98.71357012750455
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2025,
+      "horas_totales": 8760,
+      "horas_con_valor": 8624,
+      "cobertura_pct": 98.44748858447488
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2026,
+      "horas_totales": 6192,
+      "horas_con_valor": 6080,
+      "cobertura_pct": 98.19121447028424
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 1999,
+      "horas_totales": 7895,
+      "horas_con_valor": 4072,
+      "cobertura_pct": 51.57694743508549
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2000,
+      "horas_totales": 8784,
+      "horas_con_valor": 1370,
+      "cobertura_pct": 15.596539162112933
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2001,
+      "horas_totales": 8760,
+      "horas_con_valor": 8666,
+      "cobertura_pct": 98.92694063926942
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2002,
+      "horas_totales": 8760,
+      "horas_con_valor": 8674,
+      "cobertura_pct": 99.01826484018265
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2003,
+      "horas_totales": 8760,
+      "horas_con_valor": 8760,
+      "cobertura_pct": 100.0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2004,
+      "horas_totales": 8784,
+      "horas_con_valor": 8770,
+      "cobertura_pct": 99.84061930783243
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2005,
+      "horas_totales": 8760,
+      "horas_con_valor": 8708,
+      "cobertura_pct": 99.40639269406392
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2006,
+      "horas_totales": 8760,
+      "horas_con_valor": 8759,
+      "cobertura_pct": 99.98858447488584
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2007,
+      "horas_totales": 8760,
+      "horas_con_valor": 8361,
+      "cobertura_pct": 95.44520547945206
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2008,
+      "horas_totales": 8784,
+      "horas_con_valor": 8784,
+      "cobertura_pct": 100.0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2009,
+      "horas_totales": 8760,
+      "horas_con_valor": 8563,
+      "cobertura_pct": 97.75114155251141
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2010,
+      "horas_totales": 8760,
+      "horas_con_valor": 7078,
+      "cobertura_pct": 80.79908675799086
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2011,
+      "horas_totales": 8760,
+      "horas_con_valor": 8582,
+      "cobertura_pct": 97.96803652968038
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2012,
+      "horas_totales": 8784,
+      "horas_con_valor": 7918,
+      "cobertura_pct": 90.14116575591984
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2013,
+      "horas_totales": 8760,
+      "horas_con_valor": 8606,
+      "cobertura_pct": 98.2420091324201
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2014,
+      "horas_totales": 8760,
+      "horas_con_valor": 8400,
+      "cobertura_pct": 95.8904109589041
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2015,
+      "horas_totales": 8760,
+      "horas_con_valor": 8436,
+      "cobertura_pct": 96.30136986301369
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2016,
+      "horas_totales": 8784,
+      "horas_con_valor": 8597,
+      "cobertura_pct": 97.87112932604735
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2017,
+      "horas_totales": 8760,
+      "horas_con_valor": 8321,
+      "cobertura_pct": 94.98858447488584
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2018,
+      "horas_totales": 8760,
+      "horas_con_valor": 7558,
+      "cobertura_pct": 86.27853881278538
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2019,
+      "horas_totales": 8760,
+      "horas_con_valor": 8302,
+      "cobertura_pct": 94.77168949771689
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2020,
+      "horas_totales": 8784,
+      "horas_con_valor": 8535,
+      "cobertura_pct": 97.16530054644808
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2021,
+      "horas_totales": 8760,
+      "horas_con_valor": 8519,
+      "cobertura_pct": 97.24885844748859
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2022,
+      "horas_totales": 8760,
+      "horas_con_valor": 8404,
+      "cobertura_pct": 95.93607305936072
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2023,
+      "horas_totales": 8760,
+      "horas_con_valor": 8590,
+      "cobertura_pct": 98.0593607305936
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2024,
+      "horas_totales": 8784,
+      "horas_con_valor": 8448,
+      "cobertura_pct": 96.17486338797814
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2025,
+      "horas_totales": 8760,
+      "horas_con_valor": 7706,
+      "cobertura_pct": 87.96803652968036
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2026,
+      "horas_totales": 6168,
+      "horas_con_valor": 6025,
+      "cobertura_pct": 97.68158236057069
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1993,
+      "horas_totales": 6623,
+      "horas_con_valor": 3727,
+      "cobertura_pct": 56.27359202778197
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1994,
+      "horas_totales": 8760,
+      "horas_con_valor": 8609,
+      "cobertura_pct": 98.27625570776256
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1995,
+      "horas_totales": 8760,
+      "horas_con_valor": 8473,
+      "cobertura_pct": 96.72374429223744
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1996,
+      "horas_totales": 8784,
+      "horas_con_valor": 8601,
+      "cobertura_pct": 97.91666666666666
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1997,
+      "horas_totales": 8760,
+      "horas_con_valor": 8701,
+      "cobertura_pct": 99.32648401826484
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1998,
+      "horas_totales": 8760,
+      "horas_con_valor": 8745,
+      "cobertura_pct": 99.82876712328768
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1999,
+      "horas_totales": 8760,
+      "horas_con_valor": 8663,
+      "cobertura_pct": 98.89269406392694
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2000,
+      "horas_totales": 8784,
+      "horas_con_valor": 8735,
+      "cobertura_pct": 99.44216757741347
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2001,
+      "horas_totales": 8760,
+      "horas_con_valor": 8734,
+      "cobertura_pct": 99.70319634703196
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2002,
+      "horas_totales": 8760,
+      "horas_con_valor": 8747,
+      "cobertura_pct": 99.85159817351598
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2003,
+      "horas_totales": 8760,
+      "horas_con_valor": 8749,
+      "cobertura_pct": 99.87442922374429
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2004,
+      "horas_totales": 8784,
+      "horas_con_valor": 8773,
+      "cobertura_pct": 99.8747723132969
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2005,
+      "horas_totales": 8760,
+      "horas_con_valor": 8753,
+      "cobertura_pct": 99.92009132420091
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2006,
+      "horas_totales": 8760,
+      "horas_con_valor": 8741,
+      "cobertura_pct": 99.78310502283105
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2007,
+      "horas_totales": 8760,
+      "horas_con_valor": 8710,
+      "cobertura_pct": 99.42922374429224
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2008,
+      "horas_totales": 8784,
+      "horas_con_valor": 8723,
+      "cobertura_pct": 99.30555555555556
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2009,
+      "horas_totales": 8760,
+      "horas_con_valor": 8740,
+      "cobertura_pct": 99.77168949771689
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2010,
+      "horas_totales": 8760,
+      "horas_con_valor": 8618,
+      "cobertura_pct": 98.37899543378995
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2011,
+      "horas_totales": 8760,
+      "horas_con_valor": 8477,
+      "cobertura_pct": 96.76940639269407
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2012,
+      "horas_totales": 8784,
+      "horas_con_valor": 8642,
+      "cobertura_pct": 98.38342440801458
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2013,
+      "horas_totales": 8760,
+      "horas_con_valor": 8630,
+      "cobertura_pct": 98.51598173515981
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2014,
+      "horas_totales": 8760,
+      "horas_con_valor": 8669,
+      "cobertura_pct": 98.96118721461187
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2015,
+      "horas_totales": 8760,
+      "horas_con_valor": 8630,
+      "cobertura_pct": 98.51598173515981
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2016,
+      "horas_totales": 8784,
+      "horas_con_valor": 8716,
+      "cobertura_pct": 99.22586520947176
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2017,
+      "horas_totales": 8760,
+      "horas_con_valor": 8598,
+      "cobertura_pct": 98.15068493150685
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2018,
+      "horas_totales": 8760,
+      "horas_con_valor": 8669,
+      "cobertura_pct": 98.96118721461187
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2019,
+      "horas_totales": 8760,
+      "horas_con_valor": 8672,
+      "cobertura_pct": 98.99543378995433
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2020,
+      "horas_totales": 8784,
+      "horas_con_valor": 8670,
+      "cobertura_pct": 98.70218579234972
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2021,
+      "horas_totales": 8760,
+      "horas_con_valor": 8693,
+      "cobertura_pct": 99.2351598173516
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2022,
+      "horas_totales": 8760,
+      "horas_con_valor": 8621,
+      "cobertura_pct": 98.41324200913242
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2023,
+      "horas_totales": 8760,
+      "horas_con_valor": 8698,
+      "cobertura_pct": 99.29223744292237
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2024,
+      "horas_totales": 8784,
+      "horas_con_valor": 8602,
+      "cobertura_pct": 97.92805100182149
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2025,
+      "horas_totales": 8760,
+      "horas_con_valor": 8637,
+      "cobertura_pct": 98.5958904109589
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2026,
+      "horas_totales": 6168,
+      "horas_con_valor": 5922,
+      "cobertura_pct": 96.01167315175097
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1993,
+      "horas_totales": 8759,
+      "horas_con_valor": 8708,
+      "cobertura_pct": 99.41774175134148
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1994,
+      "horas_totales": 8760,
+      "horas_con_valor": 8659,
+      "cobertura_pct": 98.84703196347033
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1995,
+      "horas_totales": 8760,
+      "horas_con_valor": 8531,
+      "cobertura_pct": 97.38584474885845
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1996,
+      "horas_totales": 8784,
+      "horas_con_valor": 8711,
+      "cobertura_pct": 99.16894353369763
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1997,
+      "horas_totales": 8760,
+      "horas_con_valor": 8759,
+      "cobertura_pct": 99.98858447488584
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1998,
+      "horas_totales": 8760,
+      "horas_con_valor": 8760,
+      "cobertura_pct": 100.0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1999,
+      "horas_totales": 8760,
+      "horas_con_valor": 8667,
+      "cobertura_pct": 98.93835616438355
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2000,
+      "horas_totales": 8784,
+      "horas_con_valor": 8754,
+      "cobertura_pct": 99.6584699453552
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2001,
+      "horas_totales": 8760,
+      "horas_con_valor": 8737,
+      "cobertura_pct": 99.73744292237443
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2002,
+      "horas_totales": 8760,
+      "horas_con_valor": 8735,
+      "cobertura_pct": 99.71461187214612
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2003,
+      "horas_totales": 8760,
+      "horas_con_valor": 8737,
+      "cobertura_pct": 99.73744292237443
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2004,
+      "horas_totales": 8784,
+      "horas_con_valor": 8778,
+      "cobertura_pct": 99.93169398907104
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2005,
+      "horas_totales": 8760,
+      "horas_con_valor": 8753,
+      "cobertura_pct": 99.92009132420091
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2006,
+      "horas_totales": 8760,
+      "horas_con_valor": 8755,
+      "cobertura_pct": 99.94292237442922
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2007,
+      "horas_totales": 8760,
+      "horas_con_valor": 8624,
+      "cobertura_pct": 98.44748858447488
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2008,
+      "horas_totales": 8784,
+      "horas_con_valor": 8779,
+      "cobertura_pct": 99.94307832422587
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2009,
+      "horas_totales": 8760,
+      "horas_con_valor": 8753,
+      "cobertura_pct": 99.92009132420091
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2010,
+      "horas_totales": 8760,
+      "horas_con_valor": 8709,
+      "cobertura_pct": 99.41780821917808
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2011,
+      "horas_totales": 8760,
+      "horas_con_valor": 8577,
+      "cobertura_pct": 97.91095890410959
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2012,
+      "horas_totales": 8784,
+      "horas_con_valor": 8674,
+      "cobertura_pct": 98.74772313296903
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2013,
+      "horas_totales": 8760,
+      "horas_con_valor": 8642,
+      "cobertura_pct": 98.65296803652967
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2014,
+      "horas_totales": 8760,
+      "horas_con_valor": 8694,
+      "cobertura_pct": 99.24657534246575
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2015,
+      "horas_totales": 8760,
+      "horas_con_valor": 8674,
+      "cobertura_pct": 99.01826484018265
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2016,
+      "horas_totales": 8784,
+      "horas_con_valor": 8681,
+      "cobertura_pct": 98.82741347905282
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2017,
+      "horas_totales": 8760,
+      "horas_con_valor": 8676,
+      "cobertura_pct": 99.04109589041096
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2018,
+      "horas_totales": 8760,
+      "horas_con_valor": 8683,
+      "cobertura_pct": 99.12100456621005
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2019,
+      "horas_totales": 8760,
+      "horas_con_valor": 8690,
+      "cobertura_pct": 99.20091324200914
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2020,
+      "horas_totales": 8784,
+      "horas_con_valor": 8689,
+      "cobertura_pct": 98.91848816029145
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2021,
+      "horas_totales": 8760,
+      "horas_con_valor": 8689,
+      "cobertura_pct": 99.18949771689498
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2022,
+      "horas_totales": 8760,
+      "horas_con_valor": 8689,
+      "cobertura_pct": 99.18949771689498
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2023,
+      "horas_totales": 8760,
+      "horas_con_valor": 8684,
+      "cobertura_pct": 99.1324200913242
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2024,
+      "horas_totales": 8784,
+      "horas_con_valor": 8655,
+      "cobertura_pct": 98.53142076502732
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2025,
+      "horas_totales": 8760,
+      "horas_con_valor": 8652,
+      "cobertura_pct": 98.76712328767124
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2026,
+      "horas_totales": 6192,
+      "horas_con_valor": 6112,
+      "cobertura_pct": 98.70801033591732
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2013,
+      "horas_totales": 8759,
+      "horas_con_valor": 8414,
+      "cobertura_pct": 96.06119420025117
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2014,
+      "horas_totales": 8760,
+      "horas_con_valor": 8521,
+      "cobertura_pct": 97.27168949771689
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2015,
+      "horas_totales": 8760,
+      "horas_con_valor": 8545,
+      "cobertura_pct": 97.54566210045662
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2016,
+      "horas_totales": 8784,
+      "horas_con_valor": 8697,
+      "cobertura_pct": 99.00956284153006
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2017,
+      "horas_totales": 8760,
+      "horas_con_valor": 8619,
+      "cobertura_pct": 98.39041095890411
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2018,
+      "horas_totales": 8760,
+      "horas_con_valor": 8618,
+      "cobertura_pct": 98.37899543378995
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2019,
+      "horas_totales": 8760,
+      "horas_con_valor": 8644,
+      "cobertura_pct": 98.67579908675799
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2020,
+      "horas_totales": 8784,
+      "horas_con_valor": 8675,
+      "cobertura_pct": 98.75910746812386
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2021,
+      "horas_totales": 8760,
+      "horas_con_valor": 8694,
+      "cobertura_pct": 99.24657534246575
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2022,
+      "horas_totales": 8760,
+      "horas_con_valor": 8673,
+      "cobertura_pct": 99.0068493150685
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2023,
+      "horas_totales": 8760,
+      "horas_con_valor": 8694,
+      "cobertura_pct": 99.24657534246575
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2024,
+      "horas_totales": 8784,
+      "horas_con_valor": 8671,
+      "cobertura_pct": 98.71357012750455
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2025,
+      "horas_totales": 8760,
+      "horas_con_valor": 8510,
+      "cobertura_pct": 97.14611872146118
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2026,
+      "horas_totales": 6168,
+      "horas_con_valor": 6107,
+      "cobertura_pct": 99.01102464332037
+    }
+  ],
+  "episodios_350": [
+    {
+      "estacion": "la_greda",
+      "anio": 1993,
+      "n_horas": 153
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1994,
+      "n_horas": 92
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1995,
+      "n_horas": 214
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1996,
+      "n_horas": 183
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1997,
+      "n_horas": 48
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1998,
+      "n_horas": 12
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1999,
+      "n_horas": 7
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2000,
+      "n_horas": 11
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2001,
+      "n_horas": 27
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2002,
+      "n_horas": 5
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2003,
+      "n_horas": 2
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2004,
+      "n_horas": 1
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2005,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2006,
+      "n_horas": 2
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2007,
+      "n_horas": 5
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2008,
+      "n_horas": 7
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2009,
+      "n_horas": 1
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2010,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2011,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2012,
+      "n_horas": 1
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2013,
+      "n_horas": 1
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2014,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2015,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2016,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2017,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2018,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2019,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2020,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2021,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2022,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2023,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2024,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2025,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2026,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 1999,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2000,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2001,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2002,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2003,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2004,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2005,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2006,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2007,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2008,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2009,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2010,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2011,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2012,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2013,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2014,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2015,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2016,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2017,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2018,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2019,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2020,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2021,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2022,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2023,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2024,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2025,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2026,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1993,
+      "n_horas": 182
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1994,
+      "n_horas": 388
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1995,
+      "n_horas": 567
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1996,
+      "n_horas": 572
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1997,
+      "n_horas": 280
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1998,
+      "n_horas": 127
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1999,
+      "n_horas": 35
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2000,
+      "n_horas": 84
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2001,
+      "n_horas": 111
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2002,
+      "n_horas": 31
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2003,
+      "n_horas": 9
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2004,
+      "n_horas": 3
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2005,
+      "n_horas": 4
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2006,
+      "n_horas": 14
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2007,
+      "n_horas": 23
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2008,
+      "n_horas": 32
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2009,
+      "n_horas": 12
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2010,
+      "n_horas": 7
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2011,
+      "n_horas": 3
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2012,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2013,
+      "n_horas": 1
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2014,
+      "n_horas": 2
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2015,
+      "n_horas": 1
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2016,
+      "n_horas": 3
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2017,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2018,
+      "n_horas": 2
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2019,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2020,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2021,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2022,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2023,
+      "n_horas": 1
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2024,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2025,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2026,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1993,
+      "n_horas": 131
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1994,
+      "n_horas": 185
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1995,
+      "n_horas": 224
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1996,
+      "n_horas": 261
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1997,
+      "n_horas": 134
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1998,
+      "n_horas": 21
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1999,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2000,
+      "n_horas": 3
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2001,
+      "n_horas": 2
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2002,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2003,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2004,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2005,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2006,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2007,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2008,
+      "n_horas": 1
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2009,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2010,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2011,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2012,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2013,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2014,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2015,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2016,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2017,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2018,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2019,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2020,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2021,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2022,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2023,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2024,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2025,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2026,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2013,
+      "n_horas": 2
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2014,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2015,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2016,
+      "n_horas": 2
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2017,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2018,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2019,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2020,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2021,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2022,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2023,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2024,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2025,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2026,
+      "n_horas": 0
+    }
+  ],
+  "episodios_500": [
+    {
+      "estacion": "la_greda",
+      "anio": 1993,
+      "n_horas": 71
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1994,
+      "n_horas": 41
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1995,
+      "n_horas": 107
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1996,
+      "n_horas": 87
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1997,
+      "n_horas": 19
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1998,
+      "n_horas": 4
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1999,
+      "n_horas": 2
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2000,
+      "n_horas": 4
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2001,
+      "n_horas": 11
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2002,
+      "n_horas": 1
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2003,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2004,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2005,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2006,
+      "n_horas": 1
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2007,
+      "n_horas": 1
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2008,
+      "n_horas": 5
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2009,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2010,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2011,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2012,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2013,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2014,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2015,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2016,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2017,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2018,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2019,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2020,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2021,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2022,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2023,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2024,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2025,
+      "n_horas": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2026,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 1999,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2000,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2001,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2002,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2003,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2004,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2005,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2006,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2007,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2008,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2009,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2010,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2011,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2012,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2013,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2014,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2015,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2016,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2017,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2018,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2019,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2020,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2021,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2022,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2023,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2024,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2025,
+      "n_horas": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2026,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1993,
+      "n_horas": 109
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1994,
+      "n_horas": 220
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1995,
+      "n_horas": 328
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1996,
+      "n_horas": 340
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1997,
+      "n_horas": 145
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1998,
+      "n_horas": 60
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1999,
+      "n_horas": 8
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2000,
+      "n_horas": 32
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2001,
+      "n_horas": 49
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2002,
+      "n_horas": 9
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2003,
+      "n_horas": 3
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2004,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2005,
+      "n_horas": 1
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2006,
+      "n_horas": 3
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2007,
+      "n_horas": 7
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2008,
+      "n_horas": 3
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2009,
+      "n_horas": 1
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2010,
+      "n_horas": 2
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2011,
+      "n_horas": 2
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2012,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2013,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2014,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2015,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2016,
+      "n_horas": 1
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2017,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2018,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2019,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2020,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2021,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2022,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2023,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2024,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2025,
+      "n_horas": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2026,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1993,
+      "n_horas": 30
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1994,
+      "n_horas": 68
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1995,
+      "n_horas": 83
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1996,
+      "n_horas": 86
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1997,
+      "n_horas": 40
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1998,
+      "n_horas": 3
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1999,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2000,
+      "n_horas": 1
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2001,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2002,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2003,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2004,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2005,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2006,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2007,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2008,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2009,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2010,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2011,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2012,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2013,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2014,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2015,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2016,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2017,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2018,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2019,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2020,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2021,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2022,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2023,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2024,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2025,
+      "n_horas": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2026,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2013,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2014,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2015,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2016,
+      "n_horas": 2
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2017,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2018,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2019,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2020,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2021,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2022,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2023,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2024,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2025,
+      "n_horas": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2026,
+      "n_horas": 0
+    }
+  ],
+  "resumen_anual": [
+    {
+      "estacion": "la_greda",
+      "anio": 1993,
+      "n": 8640,
+      "media": 30.408706665039062,
+      "p99": 468.1641415405278,
+      "maximo": 952.6259765625,
+      "horas_350": 153,
+      "horas_500": 71
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1994,
+      "n": 8667,
+      "media": 24.819744110107422,
+      "p99": 364.0276446533204,
+      "maximo": 990.281005859375,
+      "horas_350": 92,
+      "horas_500": 41
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1995,
+      "n": 8514,
+      "media": 41.27429962158203,
+      "p99": 543.1327600097799,
+      "maximo": 997.510986328125,
+      "horas_350": 214,
+      "horas_500": 107
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1996,
+      "n": 8669,
+      "media": 36.93938446044922,
+      "p99": 499.07387939453054,
+      "maximo": 995.0609741210938,
+      "horas_350": 183,
+      "horas_500": 87
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1997,
+      "n": 8756,
+      "media": 15.751595497131348,
+      "p99": 268.7721496582049,
+      "maximo": 819.5789794921875,
+      "horas_350": 48,
+      "horas_500": 19
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1998,
+      "n": 8760,
+      "media": 7.646409511566162,
+      "p99": 121.75829803466782,
+      "maximo": 915.7630004882812,
+      "horas_350": 12,
+      "horas_500": 4
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 1999,
+      "n": 8659,
+      "media": 9.221251487731934,
+      "p99": 112.17518035888675,
+      "maximo": 890.4580078125,
+      "horas_350": 7,
+      "horas_500": 2
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2000,
+      "n": 8723,
+      "media": 9.247458457946777,
+      "p99": 127.77873962402353,
+      "maximo": 645.0369873046875,
+      "horas_350": 11,
+      "horas_500": 4
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2001,
+      "n": 8731,
+      "media": 10.388875007629395,
+      "p99": 174.08350067138755,
+      "maximo": 935.4949951171875,
+      "horas_350": 27,
+      "horas_500": 11
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2002,
+      "n": 8672,
+      "media": 6.094409942626953,
+      "p99": 81.78989181518519,
+      "maximo": 617.5570068359375,
+      "horas_350": 5,
+      "horas_500": 1
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2003,
+      "n": 8754,
+      "media": 6.284711837768555,
+      "p99": 83.20610046386719,
+      "maximo": 390.4580078125,
+      "horas_350": 2,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2004,
+      "n": 8672,
+      "media": 5.8827080726623535,
+      "p99": 76.93875602722096,
+      "maximo": 363.739990234375,
+      "horas_350": 1,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2005,
+      "n": 8743,
+      "media": 6.608377933502197,
+      "p99": 69.14501388549799,
+      "maximo": 328.6260070800781,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2006,
+      "n": 8725,
+      "media": 10.553023338317871,
+      "p99": 106.39731933593758,
+      "maximo": 583.5869750976562,
+      "horas_350": 2,
+      "horas_500": 1
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2007,
+      "n": 8746,
+      "media": 10.4302339553833,
+      "p99": 121.58409843444797,
+      "maximo": 510.30499267578125,
+      "horas_350": 5,
+      "horas_500": 1
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2008,
+      "n": 8772,
+      "media": 12.736647605895996,
+      "p99": 149.4083171081525,
+      "maximo": 815.64697265625,
+      "horas_350": 7,
+      "horas_500": 5
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2009,
+      "n": 8738,
+      "media": 12.93401050567627,
+      "p99": 106.34765983581512,
+      "maximo": 422.8999938964844,
+      "horas_350": 1,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2010,
+      "n": 8691,
+      "media": 2.9252383708953857,
+      "p99": 30.300559997558803,
+      "maximo": 179.11900329589844,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2011,
+      "n": 8562,
+      "media": 4.390854835510254,
+      "p99": 55.971639595031235,
+      "maximo": 253.91400146484375,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2012,
+      "n": 8617,
+      "media": 5.93058967590332,
+      "p99": 69.23555725097665,
+      "maximo": 395.7950134277344,
+      "horas_350": 1,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2013,
+      "n": 8665,
+      "media": 8.679814338684082,
+      "p99": 92.38551422119146,
+      "maximo": 362.12200927734375,
+      "horas_350": 1,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2014,
+      "n": 8657,
+      "media": 10.777751922607422,
+      "p99": 117.74332092285249,
+      "maximo": 320.0469970703125,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2015,
+      "n": 8636,
+      "media": 5.606978893280029,
+      "p99": 60.188360214233334,
+      "maximo": 329.6340026855469,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2016,
+      "n": 8698,
+      "media": 5.114940166473389,
+      "p99": 45.47554977417022,
+      "maximo": 178.8419952392578,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2017,
+      "n": 8622,
+      "media": 6.436845302581787,
+      "p99": 46.50220085144026,
+      "maximo": 229.83799743652344,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2018,
+      "n": 8664,
+      "media": 6.751892566680908,
+      "p99": 42.545798225403104,
+      "maximo": 306.5799865722656,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2019,
+      "n": 8692,
+      "media": 4.510823726654053,
+      "p99": 36.799900970459,
+      "maximo": 144.57000732421875,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2020,
+      "n": 8704,
+      "media": 4.170193672180176,
+      "p99": 25.76460044860828,
+      "maximo": 89.51000213623047,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2021,
+      "n": 8670,
+      "media": 5.000232696533203,
+      "p99": 23.197900123596146,
+      "maximo": 114.7300033569336,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2022,
+      "n": 8634,
+      "media": 5.093165397644043,
+      "p99": 19.31339954376221,
+      "maximo": 74.83999633789062,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2023,
+      "n": 8686,
+      "media": 2.8801429271698,
+      "p99": 8.979000186920144,
+      "maximo": 90.04000091552734,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2024,
+      "n": 8671,
+      "media": 2.9302446842193604,
+      "p99": 4.392999935150139,
+      "maximo": 16.420000076293945,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2025,
+      "n": 8624,
+      "media": 2.9381444454193115,
+      "p99": 6.019999980926514,
+      "maximo": 13.680000305175781,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "la_greda",
+      "anio": 2026,
+      "n": 6080,
+      "media": 2.7126548290252686,
+      "p99": 9.254200096130372,
+      "maximo": 18.469999313354492,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 1999,
+      "n": 4072,
+      "media": 9.005051612854004,
+      "p99": 26.7499797439575,
+      "maximo": 49.468101501464844,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2000,
+      "n": 1370,
+      "media": 6.215395450592041,
+      "p99": 21.074477729797305,
+      "maximo": 36.17020034790039,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2001,
+      "n": 8666,
+      "media": 7.187506198883057,
+      "p99": 21.808500289916992,
+      "maximo": 56.41859817504883,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2002,
+      "n": 8674,
+      "media": 5.776272773742676,
+      "p99": 25.28722621917771,
+      "maximo": 62.765899658203125,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2003,
+      "n": 8760,
+      "media": 6.269060134887695,
+      "p99": 17.553199768066406,
+      "maximo": 29.255300521850586,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2004,
+      "n": 8770,
+      "media": 7.825556755065918,
+      "p99": 35.63819885253906,
+      "maximo": 88.82959747314453,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2005,
+      "n": 8708,
+      "media": 3.677990198135376,
+      "p99": 17.515966739654697,
+      "maximo": 34.574501037597656,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2006,
+      "n": 8759,
+      "media": 9.145356178283691,
+      "p99": 40.957401275634766,
+      "maximo": 146.80799865722656,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2007,
+      "n": 8361,
+      "media": 8.811481475830078,
+      "p99": 54.46800003051739,
+      "maximo": 167.55299377441406,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2008,
+      "n": 8784,
+      "media": 6.3412580490112305,
+      "p99": 21.276599884033203,
+      "maximo": 59.04249954223633,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2009,
+      "n": 8563,
+      "media": 5.2632036209106445,
+      "p99": 17.78969955444336,
+      "maximo": 26.704500198364258,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2010,
+      "n": 7078,
+      "media": 3.763817548751831,
+      "p99": 15.231076745986881,
+      "maximo": 27.816699981689453,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2011,
+      "n": 8582,
+      "media": 5.22736120223999,
+      "p99": 22.43757215499879,
+      "maximo": 52.019500732421875,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2012,
+      "n": 7918,
+      "media": 5.517153739929199,
+      "p99": 22.15878540039062,
+      "maximo": 39.30720138549805,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2013,
+      "n": 8606,
+      "media": 4.9830193519592285,
+      "p99": 18.074600219726562,
+      "maximo": 28.175100326538086,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2014,
+      "n": 8400,
+      "media": 6.326988697052002,
+      "p99": 19.89951642990113,
+      "maximo": 33.252498626708984,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2015,
+      "n": 8436,
+      "media": 6.242590427398682,
+      "p99": 21.93304939270019,
+      "maximo": 38.96080017089844,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2016,
+      "n": 8597,
+      "media": 5.750330448150635,
+      "p99": 17.84609931945798,
+      "maximo": 28.42329978942871,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2017,
+      "n": 8321,
+      "media": 6.185647010803223,
+      "p99": 18.817360305786128,
+      "maximo": 27.100000381469727,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2018,
+      "n": 7558,
+      "media": 6.349635601043701,
+      "p99": 22.268699607849147,
+      "maximo": 75.55999755859375,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2019,
+      "n": 8302,
+      "media": 5.472110271453857,
+      "p99": 18.53940090179442,
+      "maximo": 26.84000015258789,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2020,
+      "n": 8535,
+      "media": 5.288876533508301,
+      "p99": 17.98319961547851,
+      "maximo": 88.37000274658203,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2021,
+      "n": 8519,
+      "media": 5.400271892547607,
+      "p99": 19.998199958801266,
+      "maximo": 132.07000732421875,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2022,
+      "n": 8404,
+      "media": 4.585190773010254,
+      "p99": 16.549699287414544,
+      "maximo": 119.0199966430664,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2023,
+      "n": 8590,
+      "media": 4.907848834991455,
+      "p99": 17.911099872589116,
+      "maximo": 102.29000091552734,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2024,
+      "n": 8448,
+      "media": 5.367787837982178,
+      "p99": 17.220599327087417,
+      "maximo": 143.22000122070312,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2025,
+      "n": 7706,
+      "media": 5.566301345825195,
+      "p99": 17.497500038146963,
+      "maximo": 133.6699981689453,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "las_palmas",
+      "anio": 2026,
+      "n": 6025,
+      "media": 5.940741539001465,
+      "p99": 20.350000381469727,
+      "maximo": 122.58999633789062,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1993,
+      "n": 3727,
+      "media": 61.462059020996094,
+      "p99": 695.8202709960938,
+      "maximo": 996.97900390625,
+      "horas_350": 182,
+      "horas_500": 109
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1994,
+      "n": 8609,
+      "media": 61.07560348510742,
+      "p99": 702.2665039062501,
+      "maximo": 982.7550048828125,
+      "horas_350": 388,
+      "horas_500": 220
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1995,
+      "n": 8473,
+      "media": 79.55266571044922,
+      "p99": 769.6754150390636,
+      "maximo": 997.1329956054688,
+      "horas_350": 567,
+      "horas_500": 328
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1996,
+      "n": 8601,
+      "media": 83.33381652832031,
+      "p99": 830.4619750976562,
+      "maximo": 995.448974609375,
+      "horas_350": 572,
+      "horas_500": 340
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1997,
+      "n": 8701,
+      "media": 48.26773452758789,
+      "p99": 601.7589721679688,
+      "maximo": 995.885009765625,
+      "horas_350": 280,
+      "horas_500": 145
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1998,
+      "n": 8745,
+      "media": 31.81675148010254,
+      "p99": 408.6578076171848,
+      "maximo": 939.427001953125,
+      "horas_350": 127,
+      "horas_500": 60
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 1999,
+      "n": 8663,
+      "media": 19.749692916870117,
+      "p99": 236.92494293212533,
+      "maximo": 987.4030151367188,
+      "horas_350": 35,
+      "horas_500": 8
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2000,
+      "n": 8735,
+      "media": 24.729206085205078,
+      "p99": 343.8153271484373,
+      "maximo": 926.7169799804688,
+      "horas_350": 84,
+      "horas_500": 32
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2001,
+      "n": 8734,
+      "media": 26.592729568481445,
+      "p99": 398.7320898437501,
+      "maximo": 982.4409790039062,
+      "horas_350": 111,
+      "horas_500": 49
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2002,
+      "n": 8747,
+      "media": 18.174373626708984,
+      "p99": 250.79402404785085,
+      "maximo": 737.7849731445312,
+      "horas_350": 31,
+      "horas_500": 9
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2003,
+      "n": 8749,
+      "media": 11.758588790893555,
+      "p99": 160.32075622558628,
+      "maximo": 638.9310302734375,
+      "horas_350": 9,
+      "horas_500": 3
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2004,
+      "n": 8773,
+      "media": 12.725147247314453,
+      "p99": 148.30563537597706,
+      "maximo": 427.86199951171875,
+      "horas_350": 3,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2005,
+      "n": 8753,
+      "media": 13.750174522399902,
+      "p99": 158.58036499023422,
+      "maximo": 651.5250244140625,
+      "horas_350": 4,
+      "horas_500": 1
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2006,
+      "n": 8741,
+      "media": 19.05326271057129,
+      "p99": 210.9161987304689,
+      "maximo": 674.427001953125,
+      "horas_350": 14,
+      "horas_500": 3
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2007,
+      "n": 8710,
+      "media": 20.87079429626465,
+      "p99": 236.64100646972656,
+      "maximo": 848.85400390625,
+      "horas_350": 23,
+      "horas_500": 7
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2008,
+      "n": 8723,
+      "media": 23.39032745361328,
+      "p99": 261.16012390136916,
+      "maximo": 604.5789794921875,
+      "horas_350": 32,
+      "horas_500": 3
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2009,
+      "n": 8740,
+      "media": 20.878273010253906,
+      "p99": 220.694434204102,
+      "maximo": 597.7100219726562,
+      "horas_350": 12,
+      "horas_500": 1
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2010,
+      "n": 8618,
+      "media": 16.00702667236328,
+      "p99": 166.98496063232423,
+      "maximo": 870.5440063476562,
+      "horas_350": 7,
+      "horas_500": 2
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2011,
+      "n": 8477,
+      "media": 14.137682914733887,
+      "p99": 154.04236633300764,
+      "maximo": 562.291015625,
+      "horas_350": 3,
+      "horas_500": 2
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2012,
+      "n": 8642,
+      "media": 11.811848640441895,
+      "p99": 121.0141910552979,
+      "maximo": 319.07598876953125,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2013,
+      "n": 8630,
+      "media": 12.77173900604248,
+      "p99": 135.49016876220702,
+      "maximo": 411.6600036621094,
+      "horas_350": 1,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2014,
+      "n": 8669,
+      "media": 11.966154098510742,
+      "p99": 137.14840026855418,
+      "maximo": 464.6579895019531,
+      "horas_350": 2,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2015,
+      "n": 8630,
+      "media": 11.459674835205078,
+      "p99": 125.45248229980434,
+      "maximo": 407.302001953125,
+      "horas_350": 1,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2016,
+      "n": 8716,
+      "media": 10.589519500732422,
+      "p99": 123.26229705810572,
+      "maximo": 502.0379943847656,
+      "horas_350": 3,
+      "horas_500": 1
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2017,
+      "n": 8598,
+      "media": 10.927448272705078,
+      "p99": 122.26534217834484,
+      "maximo": 334.8299865722656,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2018,
+      "n": 8669,
+      "media": 11.654784202575684,
+      "p99": 118.00919952392576,
+      "maximo": 480.25,
+      "horas_350": 2,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2019,
+      "n": 8672,
+      "media": 8.832056045532227,
+      "p99": 97.75190139770497,
+      "maximo": 242.86000061035156,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2020,
+      "n": 8670,
+      "media": 7.27408504486084,
+      "p99": 77.74649742126458,
+      "maximo": 252.3800048828125,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2021,
+      "n": 8693,
+      "media": 8.177902221679688,
+      "p99": 79.04800079345702,
+      "maximo": 200.92999267578125,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2022,
+      "n": 8621,
+      "media": 5.860994338989258,
+      "p99": 66.75600128173826,
+      "maximo": 180.4199981689453,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2023,
+      "n": 8698,
+      "media": 5.794290065765381,
+      "p99": 60.154999389648765,
+      "maximo": 357.0299987792969,
+      "horas_350": 1,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2024,
+      "n": 8602,
+      "media": 3.7278852462768555,
+      "p99": 9.189499588012684,
+      "maximo": 28.6200008392334,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2025,
+      "n": 8637,
+      "media": 4.628562927246094,
+      "p99": 12.662799911499011,
+      "maximo": 38.810001373291016,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "los_maitenes",
+      "anio": 2026,
+      "n": 5922,
+      "media": 4.4283447265625,
+      "p99": 13.457899990081787,
+      "maximo": 35.90999984741211,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1993,
+      "n": 8708,
+      "media": 37.549617767333984,
+      "p99": 398.85727813720746,
+      "maximo": 750.4229736328125,
+      "horas_350": 131,
+      "horas_500": 30
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1994,
+      "n": 8659,
+      "media": 43.576507568359375,
+      "p99": 466.5207910156252,
+      "maximo": 952.8510131835938,
+      "horas_350": 185,
+      "horas_500": 68
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1995,
+      "n": 8531,
+      "media": 50.8288459777832,
+      "p99": 496.8943054199225,
+      "maximo": 966.1090087890625,
+      "horas_350": 224,
+      "horas_500": 83
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1996,
+      "n": 8711,
+      "media": 54.26015853881836,
+      "p99": 491.8637878417966,
+      "maximo": 948.14501953125,
+      "horas_350": 261,
+      "horas_500": 86
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1997,
+      "n": 8759,
+      "media": 37.35032272338867,
+      "p99": 409.66620910644536,
+      "maximo": 994.5789794921875,
+      "horas_350": 134,
+      "horas_500": 40
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1998,
+      "n": 8760,
+      "media": 19.98526382446289,
+      "p99": 213.75697937011705,
+      "maximo": 811.0289916992188,
+      "horas_350": 21,
+      "horas_500": 3
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 1999,
+      "n": 8667,
+      "media": 13.445917129516602,
+      "p99": 98.72390518188479,
+      "maximo": 313.4729919433594,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2000,
+      "n": 8754,
+      "media": 15.925944328308105,
+      "p99": 119.26354141235326,
+      "maximo": 539.655029296875,
+      "horas_350": 3,
+      "horas_500": 1
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2001,
+      "n": 8737,
+      "media": 9.24758243560791,
+      "p99": 96.42728576660134,
+      "maximo": 422.1369934082031,
+      "horas_350": 2,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2002,
+      "n": 8735,
+      "media": 8.218531608581543,
+      "p99": 69.58774261474598,
+      "maximo": 307.2510070800781,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2003,
+      "n": 8737,
+      "media": 6.135348320007324,
+      "p99": 52.67179870605469,
+      "maximo": 284.73199462890625,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2004,
+      "n": 8778,
+      "media": 8.350415229797363,
+      "p99": 71.46166923522932,
+      "maximo": 327.86199951171875,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2005,
+      "n": 8753,
+      "media": 6.525085926055908,
+      "p99": 58.77859878540039,
+      "maximo": 173.66400146484375,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2006,
+      "n": 8755,
+      "media": 9.965682029724121,
+      "p99": 84.52668197631803,
+      "maximo": 217.5570068359375,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2007,
+      "n": 8624,
+      "media": 12.053030014038086,
+      "p99": 104.197998046875,
+      "maximo": 312.5950012207031,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2008,
+      "n": 8779,
+      "media": 11.980478286743164,
+      "p99": 97.58004501342698,
+      "maximo": 424.8089904785156,
+      "horas_350": 1,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2009,
+      "n": 8753,
+      "media": 9.702898025512695,
+      "p99": 76.90061492919905,
+      "maximo": 192.36599731445312,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2010,
+      "n": 8709,
+      "media": 7.931362152099609,
+      "p99": 51.8321472167969,
+      "maximo": 243.4459991455078,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2011,
+      "n": 8577,
+      "media": 6.336407661437988,
+      "p99": 48.547971649169895,
+      "maximo": 140.2239990234375,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2012,
+      "n": 8674,
+      "media": 6.477038860321045,
+      "p99": 45.759662246704174,
+      "maximo": 320.55499267578125,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2013,
+      "n": 8642,
+      "media": 9.384307861328125,
+      "p99": 57.417169494628915,
+      "maximo": 148.6009979248047,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2014,
+      "n": 8694,
+      "media": 8.87617015838623,
+      "p99": 65.24613243103015,
+      "maximo": 138.55799865722656,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2015,
+      "n": 8674,
+      "media": 6.497445106506348,
+      "p99": 49.11501201629644,
+      "maximo": 91.54409790039062,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2016,
+      "n": 8681,
+      "media": 6.284145832061768,
+      "p99": 41.1827003479004,
+      "maximo": 135.9980010986328,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2017,
+      "n": 8676,
+      "media": 5.846472263336182,
+      "p99": 40.160000801086426,
+      "maximo": 114.70999908447266,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2018,
+      "n": 8683,
+      "media": 5.6588664054870605,
+      "p99": 39.865400390625005,
+      "maximo": 142.7899932861328,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2019,
+      "n": 8690,
+      "media": 4.751272678375244,
+      "p99": 31.818400306701918,
+      "maximo": 84.30999755859375,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2020,
+      "n": 8689,
+      "media": 5.014893531799316,
+      "p99": 30.059200897216925,
+      "maximo": 76.16999816894531,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2021,
+      "n": 8689,
+      "media": 5.759543418884277,
+      "p99": 25.776000366210976,
+      "maximo": 72.08999633789062,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2022,
+      "n": 8689,
+      "media": 6.193280220031738,
+      "p99": 24.209600753784244,
+      "maximo": 46.880001068115234,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2023,
+      "n": 8684,
+      "media": 4.234656810760498,
+      "p99": 16.555300617218023,
+      "maximo": 37.41999816894531,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2024,
+      "n": 8655,
+      "media": 4.9955596923828125,
+      "p99": 9.232200107574402,
+      "maximo": 23.670000076293945,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2025,
+      "n": 8652,
+      "media": 4.82934045791626,
+      "p99": 13.279999732971191,
+      "maximo": 39.52000045776367,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "puchuncavi",
+      "anio": 2026,
+      "n": 6112,
+      "media": 4.917725563049316,
+      "p99": 12.798900165557864,
+      "maximo": 36.5,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2013,
+      "n": 8414,
+      "media": 7.024083614349365,
+      "p99": 68.73286689758318,
+      "maximo": 368.010009765625,
+      "horas_350": 2,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2014,
+      "n": 8521,
+      "media": 7.197514057159424,
+      "p99": 68.75025939941395,
+      "maximo": 235.05599975585938,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2015,
+      "n": 8545,
+      "media": 6.544739246368408,
+      "p99": 55.86304733276364,
+      "maximo": 303.5769958496094,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2016,
+      "n": 8697,
+      "media": 6.644867897033691,
+      "p99": 59.2021122741698,
+      "maximo": 772.64599609375,
+      "horas_350": 2,
+      "horas_500": 2
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2017,
+      "n": 8619,
+      "media": 5.860801696777344,
+      "p99": 43.1260004425048,
+      "maximo": 174.1020050048828,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2018,
+      "n": 8618,
+      "media": 5.959451675415039,
+      "p99": 43.18749954223631,
+      "maximo": 160.5,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2019,
+      "n": 8644,
+      "media": 4.556988716125488,
+      "p99": 37.946899604797316,
+      "maximo": 123.4800033569336,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2020,
+      "n": 8675,
+      "media": 4.1504669189453125,
+      "p99": 26.139999389648438,
+      "maximo": 199.11000061035156,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2021,
+      "n": 8694,
+      "media": 4.277126789093018,
+      "p99": 25.88209920883178,
+      "maximo": 107.62999725341797,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2022,
+      "n": 8673,
+      "media": 2.323518753051758,
+      "p99": 16.152799682617193,
+      "maximo": 72.25,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2023,
+      "n": 8694,
+      "media": 3.0560097694396973,
+      "p99": 11.231399574279779,
+      "maximo": 87.58000183105469,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2024,
+      "n": 8671,
+      "media": 2.8256452083587646,
+      "p99": 6.343000078201286,
+      "maximo": 18.049999237060547,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2025,
+      "n": 8510,
+      "media": 2.8546698093414307,
+      "p99": 6.638199868202206,
+      "maximo": 22.940000534057617,
+      "horas_350": 0,
+      "horas_500": 0
+    },
+    {
+      "estacion": "ventanas",
+      "anio": 2026,
+      "n": 6107,
+      "media": 2.5981152057647705,
+      "p99": 5.1088001346588054,
+      "maximo": 26.93000030517578,
+      "horas_350": 0,
+      "horas_500": 0
+    }
+  ],
+  "ciclo_horario_500": [
+    {
+      "hora": 0,
+      "n_episodios": 32
+    },
+    {
+      "hora": 1,
+      "n_episodios": 25
+    },
+    {
+      "hora": 2,
+      "n_episodios": 33
+    },
+    {
+      "hora": 3,
+      "n_episodios": 27
+    },
+    {
+      "hora": 4,
+      "n_episodios": 30
+    },
+    {
+      "hora": 5,
+      "n_episodios": 37
+    },
+    {
+      "hora": 6,
+      "n_episodios": 27
+    },
+    {
+      "hora": 7,
+      "n_episodios": 44
+    },
+    {
+      "hora": 8,
+      "n_episodios": 124
+    },
+    {
+      "hora": 9,
+      "n_episodios": 208
+    },
+    {
+      "hora": 10,
+      "n_episodios": 243
+    },
+    {
+      "hora": 11,
+      "n_episodios": 219
+    },
+    {
+      "hora": 12,
+      "n_episodios": 200
+    },
+    {
+      "hora": 13,
+      "n_episodios": 170
+    },
+    {
+      "hora": 14,
+      "n_episodios": 150
+    },
+    {
+      "hora": 15,
+      "n_episodios": 111
+    },
+    {
+      "hora": 16,
+      "n_episodios": 74
+    },
+    {
+      "hora": 17,
+      "n_episodios": 62
+    },
+    {
+      "hora": 18,
+      "n_episodios": 53
+    },
+    {
+      "hora": 19,
+      "n_episodios": 38
+    },
+    {
+      "hora": 20,
+      "n_episodios": 26
+    },
+    {
+      "hora": 21,
+      "n_episodios": 19
+    },
+    {
+      "hora": 22,
+      "n_episodios": 18
+    },
+    {
+      "hora": 23,
+      "n_episodios": 18
+    }
+  ],
+  "ciclo_estacional_500": [
+    {
+      "mes": 1,
+      "n_episodios": 218
+    },
+    {
+      "mes": 2,
+      "n_episodios": 116
+    },
+    {
+      "mes": 3,
+      "n_episodios": 193
+    },
+    {
+      "mes": 4,
+      "n_episodios": 142
+    },
+    {
+      "mes": 5,
+      "n_episodios": 171
+    },
+    {
+      "mes": 6,
+      "n_episodios": 154
+    },
+    {
+      "mes": 7,
+      "n_episodios": 148
+    },
+    {
+      "mes": 8,
+      "n_episodios": 166
+    },
+    {
+      "mes": 9,
+      "n_episodios": 158
+    },
+    {
+      "mes": 10,
+      "n_episodios": 195
+    },
+    {
+      "mes": 11,
+      "n_episodios": 153
+    },
+    {
+      "mes": 12,
+      "n_episodios": 174
+    }
+  ],
+  "reconstruccion_diaria": {
+    "estacion": "los_maitenes",
+    "n_dias_comparados": 9427,
+    "tolerancia_ug_m3": 1.0,
+    "n_dias_coincide": 9420,
+    "pct_coincide": 99.92574519995757,
+    "diferencia_mediana_ug_m3": 3.4332275390625e-05,
+    "diferencia_media_ug_m3": 0.00318219605833292,
+    "diferencia_maxima_ug_m3": 4.425045013427734
+  },
+  "comparacion_resolucion": {
+    "estacion": "los_maitenes",
+    "periodo_diario": [
+      "2000-08-21",
+      "2026-08-20"
+    ],
+    "n_dias_diarios": 9427,
+    "umbral_diario_ug_m3": 150,
+    "superaciones_diarias": 2,
+    "superaciones_diarias_desde_2019": 0,
+    "maximo_diario_ug_m3": 157.5850067138672,
+    "periodo_horario": [
+      "1993-03-31",
+      "2026-09-14"
+    ],
+    "n_horas_horarias": 287088,
+    "umbral_emergencia_ug_m3": 500,
+    "horas_emergencia": 1323
+  }
+}

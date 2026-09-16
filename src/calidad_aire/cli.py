@@ -1,9 +1,14 @@
 """Interfaz de línea de comandos del proyecto (`caq`)."""
 
+import datetime as dt
+import json
 from pathlib import Path
 
+import pandas as pd
 import typer
 
+from calidad_aire import eda as eda_mod
+from calidad_aire import figures
 from calidad_aire.data import load_validated
 from calidad_aire.ingest import consolidar
 
@@ -13,6 +18,8 @@ RAW_DIR = Path("data/raw")
 PROCESSED_DIR = Path("data/processed")
 PARQUET_PATH = PROCESSED_DIR / "sinca.parquet"
 QUARANTINE_DIR = Path("data/quarantine")
+REPORTS_DIR = Path("reports")
+FIGURES_DIR = REPORTS_DIR / "figures"
 
 # CLAUDE.md §11: sinca.parquet se versiona solo si pesa menos de 25 MB. Con
 # los 11 parámetros completos pesa 56 MB (34 MB incluso con category+zstd-19);
@@ -68,6 +75,71 @@ def ingest() -> None:
 
     if not cuarentena.empty:
         typer.echo(f"Motivos en cuarentena:\n{cuarentena['motivo'].value_counts().to_string()}")
+
+
+@app.command()
+def eda() -> None:
+    """Análisis exploratorio: reports/eda.json y reports/figures/ (CLAUDE.md §8.3)."""
+    typer.echo(f"Leyendo {PARQUET_PATH} ...")
+    df = pd.read_parquet(PARQUET_PATH)
+    so2 = df[df["parametro"].isin(["so2_horario", "so2_diario"])].copy()
+    nucleo = so2[so2["estacion"].isin(figures.ESTACIONES_NUCLEO)]
+
+    typer.echo("Calculando cobertura, episodios y ciclos ...")
+    cobertura = eda_mod.cobertura_por_estacion_y_anio(so2)
+    episodios_350 = eda_mod.episodios(so2, umbral=350)
+    episodios_500 = eda_mod.episodios(so2, umbral=500)
+    resumen = eda_mod.resumen_anual(so2)
+    ciclo_horario = eda_mod.ciclo_horario(nucleo)
+    ciclo_estacional = eda_mod.ciclo_estacional(nucleo)
+
+    typer.echo("Verificando la reconstrucción diaria (la comprobación central) ...")
+    reconstruccion = eda_mod.reconstruccion_diaria(so2)
+    typer.echo(
+        f"  {reconstruccion['pct_coincide']:.1f}% de {reconstruccion['n_dias_comparados']} días "
+        f"coincide (tolerancia {reconstruccion['tolerancia_ug_m3']} µg/m³), "
+        f"diferencia mediana {reconstruccion['diferencia_mediana_ug_m3']:.3f} µg/m³."
+    )
+    if reconstruccion["pct_coincide"] < 99.0:
+        typer.echo(
+            "AVISO: la reconstrucción diaria no coincide como exige CLAUDE.md §8.3 -- "
+            "la ingesta está mal. Revisar antes de confiar en el resto del informe."
+        )
+
+    comparacion = eda_mod.comparacion_resolucion(so2)
+    typer.echo(
+        f"  serie diaria: {comparacion['superaciones_diarias']} superaciones de "
+        f"{comparacion['umbral_diario_ug_m3']} µg/m³ en {comparacion['n_dias_diarios']} días -- "
+        f"serie horaria: {comparacion['horas_emergencia']} horas de emergencia en "
+        f"{comparacion['n_horas_horarias']} horas."
+    )
+
+    informe = {
+        "generado_en": dt.datetime.now().isoformat(timespec="seconds"),
+        "cobertura_por_estacion_y_anio": eda_mod.registros(cobertura),
+        "episodios_350": eda_mod.registros(episodios_350),
+        "episodios_500": eda_mod.registros(episodios_500),
+        "resumen_anual": eda_mod.registros(resumen),
+        "ciclo_horario_500": eda_mod.registros(ciclo_horario),
+        "ciclo_estacional_500": eda_mod.registros(ciclo_estacional),
+        "reconstruccion_diaria": reconstruccion,
+        "comparacion_resolucion": comparacion,
+    }
+
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    informe_path = REPORTS_DIR / "eda.json"
+    informe_path.write_text(json.dumps(informe, ensure_ascii=False, indent=2), encoding="utf-8")
+    typer.echo(f"Escrito {informe_path}.")
+
+    typer.echo(f"Dibujando figuras en {FIGURES_DIR} ...")
+    figures.figura_serie_anual_emergencias(
+        episodios_500, FIGURES_DIR / "serie_anual_emergencias.png"
+    )
+    figures.figura_maximo_anual(resumen, FIGURES_DIR / "maximo_anual.png")
+    figures.figura_clave_resolucion(so2, FIGURES_DIR / "resolucion_clave.png")
+    figures.figura_mapa_calor_ciclo(so2, FIGURES_DIR / "mapa_calor_episodios.png")
+    figures.figura_cobertura(cobertura, FIGURES_DIR / "cobertura_datos.png")
+    typer.echo("Listo.")
 
 
 if __name__ == "__main__":

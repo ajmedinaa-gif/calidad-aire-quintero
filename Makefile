@@ -1,4 +1,4 @@
-.PHONY: install lint test ingest all
+.PHONY: install lint test ingest eda all
 
 install:
 	uv sync
@@ -19,4 +19,7 @@ test:
 ingest:
 	uv run caq ingest
 
-all: install lint test ingest
+eda:
+	uv run caq eda
+
+all: install lint test ingest eda
