@@ -7,7 +7,7 @@ siguiente.
 ## Antes de empezar
 
 ```bash
-cd ~/Documents/calidad-aire-quintero
+cd ~/proyectos/calidad-aire-quintero
 python3 tools/fase.py 1 | pbcopy
 claude
 ```

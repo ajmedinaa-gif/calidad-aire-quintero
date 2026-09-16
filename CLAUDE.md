@@ -381,3 +381,25 @@ apuntando bien al `.venv`. Se reprodujo determinísticamente y se confirmó con
 de `uv sync`. Si vuelve a pasar (p.ej. tras un `.venv` nuevo), el síntoma es
 el mismo: `caq` o `import calidad_aire` fallan pero el intérprete es el
 correcto. No es un bug del código del proyecto.
+
+### 14.10 El proyecto NO vive en `~/Documents`
+
+`~/Documents` está sincronizado con iCloud en esta máquina, e iCloud no entiende
+qué es un repositorio de git. Durante la Fase 1 provocó dos incidentes
+verificados:
+
+1. Puso el flag BSD `hidden` a los `.pth` de `.venv/`, rompiendo los imports
+   (§14.9).
+2. **Restauró una versión anterior de `.git/refs/heads/main` después de un
+   push**, dejando la rama local rebobinada y divergida de `origin/main` sin
+   ningún aviso. Se resolvió con `git reset --hard origin/main` tras comprobar
+   que `git diff origin/main` estaba vacío.
+
+Un `.git` son miles de ficheros diminutos que git espera leer y escribir al
+instante; iCloud los sube, los desaloja y los reemplaza por marcadores.
+
+**Los repositorios viven en `~/proyectos/`, que no se sincroniza.** Si alguna vez
+ves `fatal: your current branch appears to be broken`, un `git status` que
+diverge sin motivo, o un `ModuleNotFoundError` con el intérprete correcto, lo
+primero que hay que comprobar es si el proyecto acabó dentro de una carpeta
+sincronizada.
