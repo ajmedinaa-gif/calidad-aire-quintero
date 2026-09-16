@@ -93,20 +93,58 @@ class TestResumenAnualContraCLAUDE:
 
 @requiere_datos_procesados
 class TestReconstruccionDiaria:
-    """LA VERIFICACIÓN CENTRAL (CLAUDE.md §8.3)."""
+    """LA VERIFICACIÓN CENTRAL (CLAUDE.md §8.3). Sin criterio de
+    aprobado/reprobado: se fija la distribución completa y los días exactos.
+    """
 
-    def test_coincide_con_lo_esperado(self, tabla_procesada) -> None:
+    def test_distribucion_contra_lo_medido(self, tabla_procesada) -> None:
         resultado = reconstruccion_diaria(tabla_procesada)
 
         assert resultado["n_dias_comparados"] == 9_427
-        assert resultado["pct_coincide"] == pytest.approx(99.9, abs=0.1)
         assert resultado["diferencia_mediana_ug_m3"] == pytest.approx(0.0, abs=1e-3)
+
+        esperado = {
+            0.1: (99.830, 16),
+            0.5: (99.873, 12),
+            1.0: (99.926, 7),
+            2.0: (99.958, 4),
+            5.0: (100.0, 0),
+        }
+        por_tolerancia = {f["tolerancia_ug_m3"]: f for f in resultado["distribucion"]}
+        for tolerancia, (pct_esperado, n_fuera_esperado) in esperado.items():
+            fila = por_tolerancia[tolerancia]
+            assert fila["pct_coincide"] == pytest.approx(pct_esperado, abs=1e-3)
+            assert fila["n_dias_fuera"] == n_fuera_esperado
+
+    def test_los_siete_dias_discrepantes_son_exactamente_estos(self, tabla_procesada) -> None:
+        # Medido a mano (2026-09-16): las siete fechas y su diferencia, todas
+        # con cobertura horaria casi completa -- no es un problema de huecos.
+        esperado = {
+            "2015-12-08": (4.425, 24),
+            "2015-01-01": (3.169, 24),
+            "2011-10-26": (2.882, 24),
+            "2012-10-20": (2.065, 23),
+            "2015-03-18": (1.564, 24),
+            "2016-02-01": (1.401, 24),
+            "2015-12-20": (1.311, 24),
+        }
+        resultado = reconstruccion_diaria(tabla_procesada)
+        dias = {
+            d["fecha"]: (d["diferencia_ug_m3"], d["n_horas"])
+            for d in resultado["dias_discrepantes"]
+        }
+
+        assert set(dias.keys()) == set(esperado.keys())
+        for fecha, (diferencia_esperada, n_horas_esperado) in esperado.items():
+            diferencia, n_horas = dias[fecha]
+            assert diferencia == pytest.approx(diferencia_esperada, abs=1e-3)
+            assert n_horas == n_horas_esperado
 
 
 class TestReconstruccionDiariaSintetica:
     """Unitario, sin depender de los datos reales: verifica la lógica sola."""
 
-    def test_promedio_horario_exacto_coincide_al_100_por_ciento(self) -> None:
+    def test_promedio_horario_exacto_no_deja_dias_discrepantes(self) -> None:
         horas = pd.date_range("2020-01-01", periods=48, freq="h")
         valores_horarios = [10.0] * 24 + [30.0] * 24  # medias diarias 10 y 30
         horaria = pd.DataFrame(
@@ -129,13 +167,16 @@ class TestReconstruccionDiariaSintetica:
         )
         df = pd.concat([horaria, diaria], ignore_index=True)
 
-        resultado = reconstruccion_diaria(df, tolerancia=0.01)
+        resultado = reconstruccion_diaria(df)
 
         assert resultado["n_dias_comparados"] == 2
-        assert resultado["pct_coincide"] == 100.0
         assert resultado["diferencia_mediana_ug_m3"] == pytest.approx(0.0)
+        assert resultado["dias_discrepantes"] == []
+        assert {f["tolerancia_ug_m3"]: f["pct_coincide"] for f in resultado["distribucion"]}[
+            0.1
+        ] == 100.0
 
-    def test_diferencia_grande_no_coincide(self) -> None:
+    def test_diferencia_grande_queda_en_dias_discrepantes(self) -> None:
         horas = pd.date_range("2020-01-01", periods=24, freq="h")
         horaria = pd.DataFrame(
             {
@@ -157,11 +198,14 @@ class TestReconstruccionDiariaSintetica:
         )
         df = pd.concat([horaria, diaria], ignore_index=True)
 
-        resultado = reconstruccion_diaria(df, tolerancia=1.0)
+        resultado = reconstruccion_diaria(df)
 
         assert resultado["n_dias_comparados"] == 1
-        assert resultado["pct_coincide"] == 0.0
         assert resultado["diferencia_mediana_ug_m3"] == pytest.approx(490.0)
+        assert len(resultado["dias_discrepantes"]) == 1
+        assert resultado["dias_discrepantes"][0]["fecha"] == "2020-01-01"
+        assert resultado["dias_discrepantes"][0]["diferencia_ug_m3"] == pytest.approx(490.0)
+        assert resultado["dias_discrepantes"][0]["n_horas"] == 24
 
 
 @requiere_datos_procesados

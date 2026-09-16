@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-09-16T18:06:47",
+  "generado_en": "2026-09-16T18:37:23",
   "cobertura_por_estacion_y_anio": [
     {
       "estacion": "la_greda",
@@ -4047,12 +4047,74 @@
   "reconstruccion_diaria": {
     "estacion": "los_maitenes",
     "n_dias_comparados": 9427,
-    "tolerancia_ug_m3": 1.0,
-    "n_dias_coincide": 9420,
-    "pct_coincide": 99.92574519995757,
     "diferencia_mediana_ug_m3": 3.4332275390625e-05,
     "diferencia_media_ug_m3": 0.00318219605833292,
-    "diferencia_maxima_ug_m3": 4.425045013427734
+    "diferencia_maxima_ug_m3": 4.425045013427734,
+    "distribucion": [
+      {
+        "tolerancia_ug_m3": 0.1,
+        "pct_coincide": 99.83027474276017,
+        "n_dias_fuera": 16
+      },
+      {
+        "tolerancia_ug_m3": 0.5,
+        "pct_coincide": 99.87270605707012,
+        "n_dias_fuera": 12
+      },
+      {
+        "tolerancia_ug_m3": 1.0,
+        "pct_coincide": 99.92574519995757,
+        "n_dias_fuera": 7
+      },
+      {
+        "tolerancia_ug_m3": 2.0,
+        "pct_coincide": 99.95756868569003,
+        "n_dias_fuera": 4
+      },
+      {
+        "tolerancia_ug_m3": 5.0,
+        "pct_coincide": 100.0,
+        "n_dias_fuera": 0
+      }
+    ],
+    "umbral_dia_discrepante_ug_m3": 1.0,
+    "dias_discrepantes": [
+      {
+        "fecha": "2015-12-08",
+        "diferencia_ug_m3": 4.425045013427734,
+        "n_horas": 24
+      },
+      {
+        "fecha": "2015-01-01",
+        "diferencia_ug_m3": 3.1686229705810547,
+        "n_horas": 24
+      },
+      {
+        "fecha": "2011-10-26",
+        "diferencia_ug_m3": 2.88185977935791,
+        "n_horas": 24
+      },
+      {
+        "fecha": "2012-10-20",
+        "diferencia_ug_m3": 2.065431594848633,
+        "n_horas": 23
+      },
+      {
+        "fecha": "2015-03-18",
+        "diferencia_ug_m3": 1.5635957717895508,
+        "n_horas": 24
+      },
+      {
+        "fecha": "2016-02-01",
+        "diferencia_ug_m3": 1.4014291763305664,
+        "n_horas": 24
+      },
+      {
+        "fecha": "2015-12-20",
+        "diferencia_ug_m3": 1.3107881546020508,
+        "n_horas": 24
+      }
+    ]
   },
   "comparacion_resolucion": {
     "estacion": "los_maitenes",

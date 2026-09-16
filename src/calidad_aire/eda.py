@@ -5,9 +5,14 @@ Funciones puras: reciben el `DataFrame` consolidado (columnas `estacion`,
 `parametro`, `fecha_hora`, `valor`, `estado`) y devuelven `DataFrame`/`dict`,
 sin leer ni escribir ficheros -- eso vive en `cli.py`.
 
-`reconstruccion_diaria` es LA VERIFICACIÓN CENTRAL de esta fase: si su
-resultado no coincide con los números de CLAUDE.md §8.3, la ingesta está mal
-y hay que pararse ahí, no seguir construyendo encima.
+`reconstruccion_diaria` es LA VERIFICACIÓN CENTRAL de esta fase (CLAUDE.md
+§8.3): compara la reconstrucción horaria->diaria contra la serie diaria
+publicada. No devuelve un aprobado/reprobado contra una tolerancia: la
+tolerancia "correcta" no existe -- siete de 9.427 días difieren en más de 1
+µg/m³ con las 24 horas completas, una discrepancia real entre dos productos
+de SINCA sobre el mismo dato, no un problema de cobertura. La función
+devuelve la distribución completa (varios niveles de tolerancia) y la lista
+de esos días exactos, para que quien lea el reporte juzgue por sí mismo.
 """
 
 from __future__ import annotations
@@ -23,13 +28,11 @@ UMBRAL_EMERGENCIA_UG_M3 = 500
 
 ESTACION_RECONSTRUCCION = "los_maitenes"
 
-# CLAUDE.md §8.3 exige "coincide en 99,9 % con diferencia mediana 0,000",
-# pero la fuente de SINCA en sí trae discrepancias de hasta ~4,4 µg/m³ en un
-# puñado de días completos de 24 horas (no achacables a huecos de cobertura;
-# medido y confirmado). 1 µg/m³ -- menos del 1 % de la norma horaria -- es la
-# tolerancia más pequeña que reproduce el 99,9 % declarado; por debajo de eso
-# se cae a 99,8 %. Ver tests/test_eda.py::test_reconstruccion_diaria.
-TOLERANCIA_RECONSTRUCCION_UG_M3 = 1.0
+# Niveles de tolerancia que se reportan en la distribución, y el umbral por
+# encima del cual un día se lista individualmente en "dias_discrepantes".
+# No hay un criterio de aprobado/reprobado (ver docstring del módulo).
+NIVELES_TOLERANCIA_UG_M3 = (0.1, 0.5, 1.0, 2.0, 5.0)
+UMBRAL_DIA_DISCREPANTE_UG_M3 = 1.0
 
 
 def _a_tipo_nativo(valor):
@@ -147,39 +150,64 @@ def ciclo_estacional(
 def reconstruccion_diaria(
     df: pd.DataFrame,
     estacion: str = ESTACION_RECONSTRUCCION,
-    tolerancia: float = TOLERANCIA_RECONSTRUCCION_UG_M3,
+    niveles_tolerancia: tuple[float, ...] = NIVELES_TOLERANCIA_UG_M3,
+    umbral_dia_discrepante: float = UMBRAL_DIA_DISCREPANTE_UG_M3,
 ) -> dict:
-    """LA VERIFICACIÓN CENTRAL (CLAUDE.md §8.3).
+    """LA VERIFICACIÓN CENTRAL (CLAUDE.md §8.3). Ver docstring del módulo.
 
     Promedia la serie horaria de `estacion` a diaria y la compara contra la
-    serie `so2_diario` ya consolidada en `df`. Debe coincidir en ~99,9 % de
-    9.427 días con diferencia mediana 0,000: si el resultado no se acerca a
-    eso, significa que la ingesta está mal -- no son el mismo dato a dos
-    resoluciones -- y hay que parar ahí.
+    serie `so2_diario` ya consolidada en `df`, día por día. Devuelve la
+    distribución completa de la diferencia absoluta a varios niveles de
+    tolerancia, y la lista de los días que exceden `umbral_dia_discrepante`
+    con su diferencia y su número de horas válidas ese día -- para
+    comprobar, como aquí, que no son días de baja cobertura.
     """
     horaria = df[(df["estacion"] == estacion) & (df["parametro"] == SO2_HORARIO)].copy()
     horaria["fecha"] = horaria["fecha_hora"].dt.floor("D")
-    reconstruida = horaria.groupby("fecha")["valor"].mean()
+    por_fecha = horaria.groupby("fecha")["valor"]
+    reconstruida = por_fecha.mean()
+    n_horas = por_fecha.apply(lambda s: int(s.notna().sum()))
 
     diaria = df[(df["estacion"] == estacion) & (df["parametro"] == SO2_DIARIO)]
     diaria = diaria.dropna(subset=["valor"]).copy()
     reportada = pd.Series(diaria["valor"].to_numpy(), index=diaria["fecha_hora"].dt.floor("D"))
 
-    comparado = pd.DataFrame({"reportada": reportada, "reconstruida": reconstruida}).dropna()
+    comparado = pd.DataFrame(
+        {"reportada": reportada, "reconstruida": reconstruida, "n_horas": n_horas}
+    ).dropna(subset=["reportada", "reconstruida"])
     diferencia = (comparado["reportada"] - comparado["reconstruida"]).abs()
 
     n = len(comparado)
-    n_coincide = int((diferencia <= tolerancia).sum())
+    distribucion = [
+        {
+            "tolerancia_ug_m3": tolerancia,
+            "pct_coincide": float((diferencia <= tolerancia).mean() * 100) if n else 0.0,
+            "n_dias_fuera": int((diferencia > tolerancia).sum()),
+        }
+        for tolerancia in niveles_tolerancia
+    ]
+
+    discrepantes = comparado.loc[diferencia > umbral_dia_discrepante].copy()
+    discrepantes["diferencia_ug_m3"] = diferencia.loc[discrepantes.index]
+    discrepantes = discrepantes.sort_values("diferencia_ug_m3", ascending=False)
+    dias_discrepantes = [
+        {
+            "fecha": str(fecha.date()),
+            "diferencia_ug_m3": float(fila["diferencia_ug_m3"]),
+            "n_horas": int(fila["n_horas"]),
+        }
+        for fecha, fila in discrepantes.iterrows()
+    ]
 
     return {
         "estacion": estacion,
         "n_dias_comparados": n,
-        "tolerancia_ug_m3": tolerancia,
-        "n_dias_coincide": n_coincide,
-        "pct_coincide": float(n_coincide / n * 100) if n else 0.0,
         "diferencia_mediana_ug_m3": float(diferencia.median()) if n else float("nan"),
         "diferencia_media_ug_m3": float(diferencia.mean()) if n else float("nan"),
         "diferencia_maxima_ug_m3": float(diferencia.max()) if n else float("nan"),
+        "distribucion": distribucion,
+        "umbral_dia_discrepante_ug_m3": umbral_dia_discrepante,
+        "dias_discrepantes": dias_discrepantes,
     }
 
 

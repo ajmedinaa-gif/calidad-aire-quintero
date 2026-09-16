@@ -83,5 +83,5 @@ def test_eda_command_escribe_json_y_cinco_figuras(tmp_path, monkeypatch) -> None
     informe = json.loads((reports_dir / "eda.json").read_text())
     assert informe["comparacion_resolucion"]["horas_emergencia"] == 1
     assert informe["reconstruccion_diaria"]["n_dias_comparados"] == 2
-    assert informe["reconstruccion_diaria"]["pct_coincide"] == 100.0
+    assert informe["reconstruccion_diaria"]["dias_discrepantes"] == []
     assert len(list((reports_dir / "figures").glob("*.png"))) == 5

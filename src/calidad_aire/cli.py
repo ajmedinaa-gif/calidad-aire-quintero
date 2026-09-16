@@ -101,14 +101,22 @@ def eda() -> None:
     typer.echo("Verificando la reconstrucción diaria (la comprobación central) ...")
     reconstruccion = eda_mod.reconstruccion_diaria(so2)
     typer.echo(
-        f"  {reconstruccion['pct_coincide']:.1f}% de {reconstruccion['n_dias_comparados']} días "
-        f"coincide (tolerancia {reconstruccion['tolerancia_ug_m3']} µg/m³), "
-        f"diferencia mediana {reconstruccion['diferencia_mediana_ug_m3']:.3f} µg/m³."
+        f"  {reconstruccion['n_dias_comparados']} días comparados, diferencia mediana "
+        f"{reconstruccion['diferencia_mediana_ug_m3']:.2e} µg/m³ -- distribución "
+        "(sin criterio de aprobado/reprobado, CLAUDE.md §8.3):"
     )
-    if reconstruccion["pct_coincide"] < 99.0:
+    for fila in reconstruccion["distribucion"]:
         typer.echo(
-            "AVISO: la reconstrucción diaria no coincide como exige CLAUDE.md §8.3 -- "
-            "la ingesta está mal. Revisar antes de confiar en el resto del informe."
+            f"    tolerancia {fila['tolerancia_ug_m3']} -> {fila['pct_coincide']:.3f}% "
+            f"({fila['n_dias_fuera']} días fuera)"
+        )
+    n_discrepantes = len(reconstruccion["dias_discrepantes"])
+    if n_discrepantes:
+        typer.echo(
+            f"  {n_discrepantes} días exceden "
+            f"{reconstruccion['umbral_dia_discrepante_ug_m3']} µg/m³ de diferencia "
+            "(ver reports/eda.json -- todos con cobertura horaria casi completa: no es un "
+            "problema de huecos)."
         )
 
     comparacion = eda_mod.comparacion_resolucion(so2)
