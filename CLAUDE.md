@@ -365,3 +365,19 @@ apuntando a una ruta que no existe en el stage final. Usa
 ### 14.8 Sistema de ficheros insensible a mayúsculas
 
 APFS no distingue `Data/` de `data/`; Linux y GitHub sí. Nombres en minúsculas.
+
+### 14.9 `.pth` ocultos rompen el install editable
+
+**Trampa verificada en esta máquina (Fase 1, 2026-09-16):** tras el primer
+`uv sync`, los ficheros `.pth` de `.venv/lib/python3.11/site-packages/`
+(incluido el del install editable del propio proyecto) quedaron con el flag
+BSD `hidden` puesto (visible con `ls -lO`). Python 3.11.16 salta los `.pth`
+ocultos al arrancar (`site.addpackage`), así que `import calidad_aire` y
+`caq` fallaban con `ModuleNotFoundError` incluso pasando por `uv run`,
+mientras que `uv run python -c "import sys; print(sys.executable)"` seguía
+apuntando bien al `.venv`. Se reprodujo determinísticamente y se confirmó con
+`ls -lO` + `python -v -c pass` (site.py imprime "Skipping hidden .pth file").
+`make install` ahora corre `chflags -R nohidden` sobre esos ficheros después
+de `uv sync`. Si vuelve a pasar (p.ej. tras un `.venv` nuevo), el síntoma es
+el mismo: `caq` o `import calidad_aire` fallan pero el intérprete es el
+correcto. No es un bug del código del proyecto.
