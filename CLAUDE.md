@@ -144,12 +144,20 @@ de las tres.
 | las_palmas | SO₂ | 1999-02-06 → 2026-09-14 | 241.991 | 91 % |
 | puchuncavi | dir. y vel. viento | 2009-12-31 → 2026-09-16 | 146.495 | 99 % |
 | ventanas | dir. y vel. viento | 2013-01-01 → 2026-09-15 | 120.143 | 98 % |
-| la_greda | dir. y vel. viento | 1970-01-01 → 2026-09-16 | 497.111 | **29 %** |
+| la_greda | dir. y vel. viento | **2010-01-01** → 2026-09-16 | 146.472 | **99 %** |
 | las_palmas | dir. viento | 2007-10-01 → 2026-07-10 | 164.591 | 42 % |
 | los_maitenes | SO₂ **diario** | 2000-08-21 → 2026-08-20 | 9.496 | 99,3 % |
 
 `las_palmas` es la estación de contraste urbano (Viña del Mar), fuera de la
 influencia del complejo industrial.
+
+**Corrección (Fase 2, 2026-09-16):** la fila de `la_greda` decía antes
+"1970-01-01 → 2026-09-16, 497.111 filas, **29 %**". Ese 29 % era un artefacto
+de dividir 16 años de datos reales entre 56 años de filas -- 1970-2009 son
+filas de continuidad del export sin ninguna estación detrás (32 y 58 lecturas
+no nulas en 40 años, y esas pocas son basura física: -72,0026° o 5,8155e+35
+m/s). Medida solo sobre su periodo real de operación (2010 en adelante), la
+cobertura de `la_greda` es 99 %, igual que `puchuncavi`. Ver §8.6.4.
 
 ### 8.2 Episodios de SO₂ — el núcleo del repositorio
 
@@ -195,8 +203,27 @@ En `los_maitenes`, mismo contaminante, mismo periodo:
 | Serie **horaria**, emergencias ≥ 500 | **1.323** |
 
 **Verificado:** promediar la serie horaria a diaria reproduce la serie diaria
-publicada en **99,9 % de 9.427 días**, con diferencia mediana **0,000 µg/m³**.
-No son datos distintos: es el mismo dato a otra resolución.
+publicada con diferencia mediana **0,000 µg/m³** (más exacto: 3,43e-05). No
+son datos distintos: es el mismo dato a otra resolución.
+
+**Corrección (Fase 2, 2026-09-16):** "99,9 %" no es un umbral de
+aprobado/reprobado -- es solo dónde cae la tolerancia de 1 µg/m³ en la
+distribución completa. Siete de 9.427 días difieren en más de eso, **con las
+24 horas completas** (no es un problema de cobertura):
+
+| tolerancia (µg/m³) | coincide | días fuera |
+|---|---|---|
+| 0,1 | 99,830 % | 16 |
+| 0,5 | 99,873 % | 12 |
+| 1 | 99,926 % | 7 |
+| 2 | 99,958 % | 4 |
+| 5 | 100,000 % | 0 |
+
+Esos siete días son una discrepancia real entre dos productos de SINCA sobre
+el mismo dato -- hipótesis no verificada: el diario probablemente se calcula
+sobre una versión validada distinta de la horaria que exporta el sitio. No
+afirmar cuál de los dos productos es "el correcto": no se sabe.
+`eda.reconstruccion_diaria` devuelve la distribución completa, no un booleano.
 
 Corolario que el repositorio debe enunciar sin adornos: un promedio de 24 horas
 diluye un pico de dos horas hasta hacerlo invisible, y la resolución diaria es
@@ -225,12 +252,74 @@ de clasificación de eventos raros en este contaminante. No lo fuerces.
 2. **`la_greda`, velocidad de viento: máximo 90.114,5 m/s.** Imposible físico —
    el récord mundial ronda los 113 m/s. Es el caso de cuarentena del proyecto,
    equivalente a la vibración negativa del repositorio anterior.
-3. **Cobertura meteorológica muy desigual**: 99 % en `puchuncavi` desde 2009,
-   29 % en `la_greda` pese a arrancar en 1970.
+3. ~~Cobertura meteorológica muy desigual: 99 % en `puchuncavi` desde 2009,
+   29 % en `la_greda` pese a arrancar en 1970.~~ **Corregido en §8.6.4: el
+   29 % era un artefacto, no una diferencia real entre estaciones.**
 4. La descarga original traía ficheros sin identificar el parámetro en el
    nombre, duplicados exactos, y ficheros que eran tablas resumen (rosas de
    vientos) en vez de series. Ya resuelto en `data/raw/`, pero **documentarlo**:
    es el problema real de ingesta desde una fuente pública.
+
+### 8.6.4 El contrato de fechas admitía basura (Fase 2)
+
+`schema.py` fijaba un único `FECHA_MINIMA = 1970-01-01` global como límite
+inferior del rango de fechas válido -- exactamente el epoch de Unix, que es
+también el valor por defecto que produce una exportación de SINCA rota. El
+contrato no podía rechazar el único error de fecha que iba a encontrar.
+
+**Medido (2026-09-16), primer año en que la cobertura de valores no nulos de
+cada (estación, parámetro) supera el 50 % y se mantiene:**
+
+| estación | parámetro | inicio medido | nota |
+|---|---|---|---|
+| la_greda | so2_horario | 1993 | limpio, SO2 no se toca |
+| la_greda | no2_horario | 2009 | |
+| la_greda | o3_horario | 2010 | |
+| la_greda | mp25_horario | 2012 | |
+| la_greda | direccion_viento_horario | **2010** | excepción: basura física antes |
+| la_greda | velocidad_viento_horario | **2010** | excepción: basura física antes |
+| las_palmas | so2_horario | 1999 | limpio, SO2 no se toca |
+| las_palmas | o3_horario | 1999 | |
+| las_palmas | velocidad_viento_horario | 1999-2001 | real, sin excepción |
+| las_palmas | co_horario | 2000 | |
+| las_palmas | mp10_horario | 2007-2008 | |
+| las_palmas | direccion_viento_horario | 2007-2020 | real, sin excepción |
+| las_palmas | mp25_horario | 2020-2026 | sensor con baja cobertura, no basura |
+| los_maitenes | so2_horario | 1993 | limpio, SO2 no se toca |
+| los_maitenes | so2_diario | 2000 | limpio, SO2 no se toca |
+| los_maitenes | mp10_diario | 2009 | |
+| los_maitenes | o3_horario | 2009 | |
+| los_maitenes | mp25_diario | 2013 | |
+| puchuncavi | so2_horario | 1993 | limpio, SO2 no se toca |
+| puchuncavi | no2_horario | **2009** | excepción: basura física antes (blip de 1986) |
+| puchuncavi | o3_horario | 2010 | |
+| puchuncavi | direccion_viento_horario | 2010 | |
+| puchuncavi | velocidad_viento_horario | 2010 | |
+| puchuncavi | mp10_horario | 2016 | |
+| puchuncavi | mp25_horario | 2016 | |
+| ventanas | los 7 parámetros | 2013 | estación completa desde su alta |
+
+**Dos casos, no uno.** "Primer año con cobertura sostenida > 50 %" no basta
+por sí solo: aplicado a ciegas, ese criterio también habría recortado
+`las_palmas/so2_horario` a 2001 (excluyendo 1999-2000, que tiene 91 %/91 %
+de cobertura horas después SO2 real y plausible, 0-63 µg/m³) y
+`las_palmas/direccion_viento_horario` a 2020 (excluyendo 2007-2010, 91-99 %
+de cobertura real). La diferencia entre "esto es basura" y "esto es un dato
+real con baja cobertura" no la da el número de cobertura solo: se
+inspeccionaron los valores. Solo 3 de 32 pares tienen basura física
+verificada (`la_greda` viento, `puchuncavi/no2_horario`); en esos, el
+`INICIO_OPERACION` en `schema.py` usa la primera fecha con un valor
+*físicamente plausible*, no la primera fecha con cualquier valor. En los
+otros 29, es sin más la primera fecha con un valor no nulo -- ningún par de
+SO2 tiene excepción.
+
+`INICIO_OPERACION` es una tabla explícita en `schema.py`, no un umbral que se
+recalcula solo: un recálculo en tiempo de ejecución podría desplazarse en
+silencio si los datos cambian. Una fila sin valor anterior al inicio de
+operación de su estación no lleva información y se descarta antes de
+validar (1.186.754 filas en la ingesta de 2026-09-16, casi todas
+`la_greda`/viento 1970-2009); una fila CON valor en ese rango sí es un dato,
+y el contrato la manda a cuarentena con motivo `fecha_anterior_a_operacion`.
 
 ## 9. Protocolo de análisis
 
