@@ -88,7 +88,13 @@ El límite inferior de fecha **no** es un `1970-01-01` global: ese valor es
 justo el que produce una exportación de SINCA rota (la de `la_greda`/viento
 de arriba), así que no podía rechazar nada. `INICIO_OPERACION`, en
 `schema.py`, es una tabla explícita con el inicio medido de cada una de las
-32 combinaciones (estación, parámetro) -- nunca se recalcula sola.
+32 combinaciones (estación, parámetro) -- nunca se recalcula sola. Dicho sin
+ceremonia: en 29 de esas 32 combinaciones el inicio es, por construcción, la
+primera fecha con valor, así que ningún dato real puede caer antes -- el
+límite de fecha vigila activamente solo los 3 pares de excepción (`la_greda`
+viento y `puchuncavi`/NO₂); en los otros 29 se cumple por definición, y la
+tabla existe para que el día que SINCA publique basura nueva el contrato
+tenga dónde apoyarse.
 
 Una fila **sin valor**, fechada antes de ese inicio, no lleva ninguna
 información -- es continuidad de fechas del export, no un dato perdido -- y
