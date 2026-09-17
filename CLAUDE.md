@@ -321,6 +321,52 @@ validar (1.186.754 filas en la ingesta de 2026-09-16, casi todas
 `la_greda`/viento 1970-2009); una fila CON valor en ese rango sí es un dato,
 y el contrato la manda a cuarentena con motivo `fecha_anterior_a_operacion`.
 
+**Nota sobre alcance:** en 29 de los 32 pares, `INICIO_OPERACION` es por
+construcción la primera fecha con valor no nulo, así que ninguna fila con
+valor puede caer antes de ese límite ahí -- la rama de cuarentena por
+`fecha_anterior_a_operacion` solo es alcanzable en los 3 pares de excepción
+(lo confirma la cuarentena real: sus 153 filas rechazadas por fecha vienen
+exactamente de esos 3 pares). No es un error: la tabla existe para que el
+día que SINCA publique basura nueva en cualquiera de los 32 pares, el
+contrato tenga dónde apoyarse -- pero hoy vigila activamente 3, no 32.
+
+### 8.6.5 La ventana de falla del sensor de viento de La Greda (Fase 2)
+
+`INICIO_OPERACION` resuelve "la estación no existía todavía"; no resuelve
+"el instrumento se cayó un rato mientras ya funcionaba". Verificado
+(2026-09-17) sobre los 8 pares (estación, parámetro) de viento, con el mismo
+criterio que en §8.6.4 pero buscando **dentro** del periodo de operación:
+tramos con al menos una lectura fuera de rango físico, extendidos hacia
+ambos lados mientras la cobertura horaria en una vecindad de 6 horas se
+mantuviera por debajo del 50 %.
+
+**Resultado: una sola ventana en las 8 combinaciones.** Los otros 7 pares no
+tienen ni una sola lectura fuera de rango en todo su periodo de operación.
+
+| estación | parámetro | ventana | horas | nulas | fuera de rango | "en rango" que es ruido |
+|---|---|---|---|---|---|---|
+| la_greda | direccion_viento_horario | 2021-01-15 07:00 → 2021-01-17 16:00 | 58 | 53 | 4 | 1 (2,03e-20°) |
+| la_greda | velocidad_viento_horario | 2021-01-15 07:00 → 2021-01-17 16:00 | 58 | 50 | 4 | 4 (9,2e-33 a 2,7e-14 m/s) |
+
+Los valores fuera de rango son del mismo carácter que los de §8.6.4:
+-1,09e8, -2,26e-17, 1,29e11 m/s; -72,0° y 90.114,5 m/s (esta última, la
+misma lectura ya conocida de §8.6.2, resulta estar en esta ventana de 2021,
+no en la época fantasma 1970-2009 -- corregido en el README). Los 5 valores
+"en rango" no son calma: son números de magnitud absurda (del orden de
+10⁻¹⁴ a 10⁻³³) que un sensor caído produce y que por pura coincidencia
+numérica caen dentro de [0, 60] o [0, 360] -- ruido de piso, no viento cero.
+**SO2 de `la_greda` funciona con normalidad las 72 horas del mismo rango**
+(0 huecos, 3,3-28,1 µg/m³): la falla es solo meteorológica.
+
+`schema.VENTANAS_FALLA_SENSOR` declara esta ventana a mano (misma lógica que
+`INICIO_OPERACION`: nunca se recalcula sola). Dentro de una ventana
+declarada, todo valor no nulo de ese parámetro -- en rango o no -- va a
+cuarentena con motivo `ventana_de_falla_de_sensor` (acumulado con
+`valor fuera de rango físico` cuando aplican los dos). Un valor nulo dentro
+de la ventana no se toca: ya es el hueco que la ventana declara. **Ningún
+cero de viento fuera de esta ventana se toca** -- la calma real existe y es
+un dato legítimo; lo que se declara es la ventana, nunca el valor.
+
 ## 9. Protocolo de análisis
 
 ### 9.1 Recuperación y efecto del cierre
