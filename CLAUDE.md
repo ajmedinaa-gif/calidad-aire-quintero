@@ -381,6 +381,15 @@ un dato legítimo; lo que se declara es la ventana, nunca el valor.
   dentro de la bahía; la meteorología no cubre todo el periodo; hubo otros
   cambios regulatorios y operativos en 33 años; y la pandemia de 2020 coincide
   con parte del descenso. El análisis es observacional.
+- **El viento tiene huecos declarados, no ausencias silenciosas.** Desde 2010,
+  `la_greda` acumula 1.314 horas nulas en dirección de viento y 1.313 en
+  velocidad; 53 y 50 de esas horas respectivamente son la ventana de falla de
+  sensor de 2021-01-15 a 2021-01-17 (`schema.VENTANAS_FALLA_SENSOR`, §8.6.5).
+  Si el pronóstico o cualquier análisis de la fase 3 usa viento como
+  covariable, tiene que decidir explícitamente qué hacer con esos huecos --
+  excluirlos del entrenamiento/evaluación, o imputarlos declarando el método
+  -- y decirlo en el texto. Interpolar por encima sin mencionarlo es una
+  suposición nuestra disfrazada de dato.
 
 ### 9.2 Pronóstico horario
 
