@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-09-16T18:37:23",
+  "generado_en": "2026-09-16T19:22:08",
   "cobertura_por_estacion_y_anio": [
     {
       "estacion": "la_greda",
@@ -4134,5 +4134,23 @@
     "n_horas_horarias": 287088,
     "umbral_emergencia_ug_m3": 500,
     "horas_emergencia": 1323
-  }
+  },
+  "ventanas_falla_sensor": [
+    {
+      "estacion": "la_greda",
+      "parametro": "direccion_viento_horario",
+      "inicio": "2021-01-15 07:00:00",
+      "fin": "2021-01-17 16:00:00",
+      "n_horas": 53,
+      "n_horas_con_valor": 0
+    },
+    {
+      "estacion": "la_greda",
+      "parametro": "velocidad_viento_horario",
+      "inicio": "2021-01-15 07:00:00",
+      "fin": "2021-01-17 16:00:00",
+      "n_horas": 50,
+      "n_horas_con_valor": 0
+    }
+  ]
 }

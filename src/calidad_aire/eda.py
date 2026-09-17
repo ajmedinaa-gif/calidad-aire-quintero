@@ -19,6 +19,8 @@ from __future__ import annotations
 
 import pandas as pd
 
+from calidad_aire.schema import VENTANAS_FALLA_SENSOR
+
 SO2_HORARIO = "so2_horario"
 SO2_DIARIO = "so2_diario"
 
@@ -251,3 +253,35 @@ def comparacion_resolucion(
         "umbral_emergencia_ug_m3": umbral_emergencia,
         "horas_emergencia": int((horaria["valor"] >= umbral_emergencia).sum()),
     }
+
+
+def ventanas_falla_sensor(df: pd.DataFrame) -> list[dict]:
+    """Expone `schema.VENTANAS_FALLA_SENSOR` con sus horas medidas en `df`,
+    para que la fase 3 la lea del informe en vez de redescubrirla
+    (CLAUDE.md §8.6.5 y §9.1: son huecos que hay que tratar explícitamente,
+    no interpolar por encima).
+
+    Tras el contrato, toda hora con valor dentro de la ventana ya fue a
+    cuarentena: `n_horas_con_valor` debería dar 0 sobre un `df` que ya pasó
+    por `data.load_validated` (el parquet). Si no da 0, algo se está
+    imputando o coló un valor que el contrato debería haber rechazado.
+    """
+    filas = []
+    for estacion, parametro, inicio, fin in VENTANAS_FALLA_SENSOR:
+        tramo = df[
+            (df["estacion"] == estacion)
+            & (df["parametro"] == parametro)
+            & (df["fecha_hora"] >= inicio)
+            & (df["fecha_hora"] <= fin)
+        ]
+        filas.append(
+            {
+                "estacion": estacion,
+                "parametro": parametro,
+                "inicio": str(inicio),
+                "fin": str(fin),
+                "n_horas": len(tramo),
+                "n_horas_con_valor": int(tramo["valor"].notna().sum()),
+            }
+        )
+    return filas

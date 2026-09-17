@@ -94,6 +94,50 @@ INICIO_OPERACION: dict[tuple[str, str], pd.Timestamp] = {
     ("ventanas", "velocidad_viento_horario"): pd.Timestamp("2013-01-01"),
 }
 
+# Ventanas de falla de sensor DENTRO del periodo de operación (CLAUDE.md
+# §8.6.5): a diferencia de INICIO_OPERACION, esto no es "la estación no
+# existía todavía" sino "el instrumento se cayó un rato mientras ya
+# funcionaba". Medido el 2026-09-17 sobre los 8 pares (estación, parámetro)
+# de viento, buscando tramos con al menos una lectura fuera de rango físico
+# y extendidos hacia ambos lados mientras la cobertura horaria en una
+# vecindad de 6 horas se mantuviera por debajo del 50 % -- es la única
+# ventana que existe: los otros 7 pares no tienen ni una sola lectura fuera
+# de rango en todo su periodo de operación.
+#
+# la_greda, 2021-01-15 07:00 a 2021-01-17 16:00 (58 horas). SO2 de la_greda
+# funciona con normalidad las 72 horas de ese rango (0 huecos, 3,3-28,1
+# µg/m³): la falla es solo meteorológica, no afecta al contaminante que
+# importa a este repositorio.
+#   - direccion_viento_horario: 53 de 58 horas nulas; 4 fuera de rango
+#     (-1,09e8; -1,10e-29; -2,26e-17; 1,29e11 grados); 1 hora "en rango"
+#     que en realidad es ruido de piso del instrumento (2,03e-20 grados),
+#     no una lectura real.
+#   - velocidad_viento_horario: el algoritmo por sí solo encuentra un tramo
+#     más corto (46-53 horas, 09:00 del 15 a 13:00 del 17) porque cuatro de
+#     sus horas "en rango" son ruido de piso casi cero (9,2e-33; 2,0e-20
+#     dos veces; 2,7e-14 m/s -- el "cero" que un sensor caído informa, no
+#     una calma real) que interrumpen la racha de nulos; se declara la
+#     misma ventana que dirección porque es el mismo instrumento fallando y
+#     las horas de diferencia (07:00-09:00, 13:00-16:00) también son nulas
+#     en velocidad, no datos reales excluidos de más.
+# Ningún cero de viento fuera de esta ventana se toca: la calma real existe
+# y es un dato legítimo (CLAUDE.md §8.6.5) -- lo que se declara es la
+# ventana, nunca el valor.
+VENTANAS_FALLA_SENSOR: list[tuple[str, str, pd.Timestamp, pd.Timestamp]] = [
+    (
+        "la_greda",
+        "direccion_viento_horario",
+        pd.Timestamp("2021-01-15 07:00:00"),
+        pd.Timestamp("2021-01-17 16:00:00"),
+    ),
+    (
+        "la_greda",
+        "velocidad_viento_horario",
+        pd.Timestamp("2021-01-15 07:00:00"),
+        pd.Timestamp("2021-01-17 16:00:00"),
+    ),
+]
+
 
 def _parametro_base(parametro: pd.Series) -> pd.Series:
     return parametro.str.replace(_SUFIJO_RESOLUCION, "", regex=True)
@@ -174,6 +218,32 @@ def fecha_no_es_futura(df: pd.DataFrame) -> pd.Series:
     return df["fecha_hora"] <= hoy
 
 
+def _dentro_de_ventana_falla_sensor(df: pd.DataFrame) -> pd.Series:
+    dentro = pd.Series(False, index=df.index)
+    for estacion, parametro, inicio, fin in VENTANAS_FALLA_SENSOR:
+        dentro |= (
+            (df["estacion"] == estacion)
+            & (df["parametro"] == parametro)
+            & (df["fecha_hora"] >= inicio)
+            & (df["fecha_hora"] <= fin)
+        )
+    return dentro
+
+
+def fuera_de_ventana_falla_sensor(df: pd.DataFrame) -> pd.Series:
+    """True donde la fila NO es un valor no nulo dentro de una ventana de
+    falla de sensor declarada (CLAUDE.md §8.6.5).
+
+    Una fila nula dentro de la ventana pasa (es exactamente el hueco que la
+    ventana declara); una fila con valor dentro de la ventana no pasa --
+    incluido un valor que por sí solo respetaría el rango físico, como los
+    ceros de ruido de piso descritos junto a `VENTANAS_FALLA_SENSOR`. No se
+    imputa nada: la fila va a cuarentena y el hueco queda explícito.
+    """
+    dentro = _dentro_de_ventana_falla_sensor(df)
+    return ~(dentro & df["valor"].notna())
+
+
 ESQUEMA_SINCA = pa.DataFrameSchema(
     columns={
         "estacion": pa.Column(str),
@@ -186,6 +256,7 @@ ESQUEMA_SINCA = pa.DataFrameSchema(
         pa.Check(valor_en_rango_fisico, error="valor fuera de rango físico"),
         pa.Check(fecha_posterior_a_inicio_operacion, error="fecha_anterior_a_operacion"),
         pa.Check(fecha_no_es_futura, error="fecha_futura"),
+        pa.Check(fuera_de_ventana_falla_sensor, error="ventana_de_falla_de_sensor"),
     ],
     strict=False,
     coerce=False,

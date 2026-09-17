@@ -127,6 +127,14 @@ def eda() -> None:
         f"{comparacion['n_horas_horarias']} horas."
     )
 
+    ventanas_falla = eda_mod.ventanas_falla_sensor(df)
+    for fila in ventanas_falla:
+        typer.echo(
+            f"  ventana de falla de sensor: {fila['estacion']}/{fila['parametro']} "
+            f"{fila['inicio']} a {fila['fin']} -- {fila['n_horas']} horas, "
+            f"{fila['n_horas_con_valor']} con valor (debería ser 0, ver CLAUDE.md §8.6.5)."
+        )
+
     informe = {
         "generado_en": dt.datetime.now().isoformat(timespec="seconds"),
         "cobertura_por_estacion_y_anio": eda_mod.registros(cobertura),
@@ -137,6 +145,7 @@ def eda() -> None:
         "ciclo_estacional_500": eda_mod.registros(ciclo_estacional),
         "reconstruccion_diaria": reconstruccion,
         "comparacion_resolucion": comparacion,
+        "ventanas_falla_sensor": ventanas_falla,
     }
 
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)

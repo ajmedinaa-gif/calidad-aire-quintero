@@ -7,7 +7,7 @@ import pytest
 
 from calidad_aire.data import descartar_ausentes_antes_de_operacion, load_validated
 from calidad_aire.ingest import leer_sinca
-from calidad_aire.schema import INICIO_OPERACION
+from calidad_aire.schema import INICIO_OPERACION, VENTANAS_FALLA_SENSOR
 from tests.conftest import RAW_DIR, requiere_datos_crudos, requiere_datos_procesados
 
 
@@ -168,3 +168,133 @@ def test_parquet_no_tiene_filas_anteriores_a_su_inicio_de_operacion(tabla_proces
             infracciones.append((estacion, parametro, len(antes)))
 
     assert infracciones == []
+
+
+class TestVentanaFallaSensor:
+    """CLAUDE.md §8.6.5: la_greda, viento, 2021-01-15 07:00 a 2021-01-17 16:00."""
+
+    ESTACION = "la_greda"
+    PARAMETRO = "direccion_viento_horario"
+    DENTRO = datetime(2021, 1, 16, 12, 0)  # bien adentro de la ventana declarada
+    ANTES = datetime(2021, 1, 14, 12, 0)  # un día antes, fuera de la ventana
+    DESPUES = datetime(2021, 1, 18, 12, 0)  # un día después, fuera de la ventana
+
+    def test_valor_nulo_dentro_de_la_ventana_pasa(self, tmp_path) -> None:
+        df = pd.DataFrame(
+            [
+                _fila(
+                    estacion=self.ESTACION,
+                    parametro=self.PARAMETRO,
+                    fecha_hora=self.DENTRO,
+                    valor=float("nan"),
+                    estado="ausente",
+                )
+            ]
+        )
+        validas, cuarentena = load_validated(df, quarantine_dir=tmp_path)
+
+        assert len(validas) == 1
+        assert cuarentena.empty
+
+    def test_valor_en_rango_dentro_de_la_ventana_va_a_cuarentena(self, tmp_path) -> None:
+        # 0,0 grados es un valor en rango en cualquier otro momento; dentro
+        # de la ventana declarada no es una calma, es el sensor caído.
+        df = pd.DataFrame(
+            [
+                _fila(
+                    estacion=self.ESTACION,
+                    parametro=self.PARAMETRO,
+                    fecha_hora=self.DENTRO,
+                    valor=0.0,
+                )
+            ]
+        )
+        validas, cuarentena = load_validated(df, quarantine_dir=tmp_path)
+
+        assert validas.empty
+        assert len(cuarentena) == 1
+        assert cuarentena.iloc[0]["motivo"] == "ventana_de_falla_de_sensor"
+
+    def test_valor_fuera_de_rango_dentro_de_la_ventana_acumula_los_dos_motivos(
+        self, tmp_path
+    ) -> None:
+        df = pd.DataFrame(
+            [
+                _fila(
+                    estacion=self.ESTACION,
+                    parametro=self.PARAMETRO,
+                    fecha_hora=self.DENTRO,
+                    valor=400.0,
+                )
+            ]
+        )
+        validas, cuarentena = load_validated(df, quarantine_dir=tmp_path)
+
+        assert validas.empty
+        assert len(cuarentena) == 1
+        motivo = cuarentena.iloc[0]["motivo"]
+        assert "ventana_de_falla_de_sensor" in motivo
+        assert "valor fuera de rango físico" in motivo
+
+    @pytest.mark.parametrize("fecha", [ANTES, DESPUES])
+    def test_valor_fuera_de_la_ventana_pasa_normal(self, fecha, tmp_path) -> None:
+        df = pd.DataFrame(
+            [_fila(estacion=self.ESTACION, parametro=self.PARAMETRO, fecha_hora=fecha, valor=0.0)]
+        )
+        validas, cuarentena = load_validated(df, quarantine_dir=tmp_path)
+
+        assert len(validas) == 1
+        assert cuarentena.empty
+
+    def test_otra_estacion_en_la_misma_fecha_no_se_toca(self, tmp_path) -> None:
+        # La ventana está declarada solo para la_greda; puchuncavi, mismo
+        # parámetro y misma fecha, no debe verse afectado.
+        df = pd.DataFrame(
+            [
+                _fila(
+                    estacion="puchuncavi",
+                    parametro=self.PARAMETRO,
+                    fecha_hora=self.DENTRO,
+                    valor=0.0,
+                )
+            ]
+        )
+        validas, cuarentena = load_validated(df, quarantine_dir=tmp_path)
+
+        assert len(validas) == 1
+        assert cuarentena.empty
+
+
+@requiere_datos_procesados
+def test_parquet_no_tiene_valor_dentro_de_una_ventana_de_falla_declarada(tabla_procesada) -> None:
+    """Regresión (CLAUDE.md §8.6.5): tras el contrato, cero filas con valor
+    dentro de una ventana declarada -- el hueco queda explícito, no imputado.
+    """
+    infracciones = []
+    for estacion, parametro, inicio, fin in VENTANAS_FALLA_SENSOR:
+        tramo = tabla_procesada[
+            (tabla_procesada["estacion"] == estacion)
+            & (tabla_procesada["parametro"] == parametro)
+            & (tabla_procesada["fecha_hora"] >= inicio)
+            & (tabla_procesada["fecha_hora"] <= fin)
+        ]
+        con_valor = tramo[tramo["valor"].notna()]
+        if not con_valor.empty:
+            infracciones.append((estacion, parametro, len(con_valor)))
+
+    assert infracciones == []
+
+
+@requiere_datos_procesados
+def test_so2_la_greda_intacto_durante_la_ventana_de_falla_de_viento(tabla_procesada) -> None:
+    """CLAUDE.md §8.6.5: la falla es solo meteorológica -- SO2 no se toca."""
+    ini, fin = pd.Timestamp("2021-01-15"), pd.Timestamp("2021-01-18")
+    so2 = tabla_procesada[
+        (tabla_procesada["estacion"] == "la_greda")
+        & (tabla_procesada["parametro"] == "so2_horario")
+        & (tabla_procesada["fecha_hora"] >= ini)
+        & (tabla_procesada["fecha_hora"] < fin)
+    ]
+
+    assert len(so2) == 72
+    assert so2["valor"].notna().all()
