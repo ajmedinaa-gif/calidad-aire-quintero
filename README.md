@@ -101,9 +101,24 @@ cualquier otra: va a `data/quarantine/<timestamp>.csv` con motivo
 una fila que sí trae un valor sería exactamente lo que la regla dura 4 de
 este proyecto prohíbe.
 
-El caso de cuarentena por rango físico conocido de esta descarga es una
-lectura de **90.114,5 m/s** de velocidad de viento en `la_greda` — muy por
-encima del récord mundial (≈113 m/s).
+**Una falla de sensor no es lo mismo que "la estación no existía".**
+`la_greda` tuvo una caída real de su estación meteorológica entre el
+2021-01-15 07:00 y el 2021-01-17 16:00 (58 horas), ya dentro del tramo bueno
+de la serie: 53 de esas horas quedan nulas en dirección de viento y 50 en
+velocidad, y unas pocas traen valores que un instrumento caído produce --
+desde -1,09×10⁸ hasta 1,29×10¹¹, y **90.114,5 m/s** (la lectura imposible ya
+conocida de este proyecto, que resulta ser de 2021, no de la época fantasma
+1970-2009). Un puñado más de horas "en rango" son en realidad números como
+9,2×10⁻³³ o 2,0×10⁻²⁰ -- ruido de piso que por coincidencia numérica cae
+dentro de [0, 60] o [0, 360], no una calma real: un cero rodeado de valores
+imposibles, en medio de una caída de cobertura de 58 horas, es el sensor
+informando cero, no viento en calma. SO₂ de `la_greda` funciona con
+normalidad las 72 horas del mismo rango (0 huecos, 3,3-28,1 µg/m³): la falla
+es solo meteorológica. `schema.VENTANAS_FALLA_SENSOR` declara esta ventana a
+mano, igual que `INICIO_OPERACION`, y **todo** valor no nulo dentro de ella
+va a cuarentena con motivo `ventana_de_falla_de_sensor` -- ningún cero de
+viento fuera de esta ventana se toca; la calma real existe y es un dato
+legítimo.
 
 ### Qué se versiona y qué no
 
